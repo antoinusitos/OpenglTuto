@@ -5,22 +5,27 @@
 
 // a struct inside a struct is a composition
 
+struct Position
+{
+	float x;
+	float y;
+}
+
+struct Color
+{
+	GLubyte r;
+	GLubyte g;
+	GLubyte b;
+	GLubyte a;
+}
+
 struct Vertex
 {
 	// the x and y position
-	struct Position
-	{
-		float x;
-		float y;
-	} position;
+	Position position;
+
 	// one byte(octet) per channel
-	struct Color
-	{
-		GLubyte r;
-		GLubyte g;
-		GLubyte b;
-		GLubyte a;
-	} color;
+	Color color;
 };
 
 #endif

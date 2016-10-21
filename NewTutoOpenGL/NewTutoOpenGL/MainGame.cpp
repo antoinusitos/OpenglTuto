@@ -1,12 +1,8 @@
 #include "MainGame.h"
 #include "Errors.h"
 
-MainGame::MainGame()
+MainGame::MainGame() : time(0.0f), windowWidth(1024), windowHeight(0), window(nullptr), currentGameState(GameState::PLAY)
 {
-	window = nullptr;
-	windowWidth = 1024;
-	windowHeight = 768;
-	currentGameState = GameState::PLAY;
 }
 
 MainGame::~MainGame()
@@ -75,6 +71,7 @@ void MainGame::GameLoop()
 	while (currentGameState != GameState::EXIT)
 	{
 		ProcessInput();
+		time += 0.01f;
 		DrawGame();
 	}
 }
@@ -118,6 +115,11 @@ void MainGame::DrawGame()
 	}
 	// bind the input of the shader
 	colorProgram->Use();
+
+	GLuint timeLocation = colorProgram->GetUniformLocation("time");
+
+	// send the time to the graphic card
+	glUniform1f(timeLocation, time);
 
 	// draw the sprite
 	sprite->Draw();
