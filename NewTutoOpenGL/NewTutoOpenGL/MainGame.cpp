@@ -20,7 +20,7 @@ void MainGame::Run()
 	InitSystem();
 
 	sprite = new Sprite();
-	sprite->Init(-1.0f, -1.0f, 1.0f, 1.0f);
+	sprite->Init(-1.0f, -1.0f, 2.0f, 2.0f);
 
 	GameLoop();
 }
@@ -66,6 +66,7 @@ void MainGame::InitShaders()
 	colorProgram = new GLSLProgram();
 	colorProgram->CompileShaders("Shaders/ColorShading.vert", "Shaders/ColorShading.frag");
 	colorProgram->AddAttribute("vertexPosition");
+	colorProgram->AddAttribute("vertexColor");
 	colorProgram->LinkShaders();
 }
 
@@ -91,6 +92,13 @@ void MainGame::ProcessInput()
 
 		case SDL_MOUSEMOTION:
 			//cout << theEvent.motion.x << " " << theEvent.motion.y << endl;
+			break;
+		}
+		switch (theEvent.key.keysym.scancode)
+		{
+
+		case SDL_SCANCODE_ESCAPE:
+			currentGameState = GameState::EXIT;
 			break;
 		}
 	}

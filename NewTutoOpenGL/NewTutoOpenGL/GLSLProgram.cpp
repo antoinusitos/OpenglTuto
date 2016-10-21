@@ -14,6 +14,11 @@ GLSLProgram::~GLSLProgram()
 
 void GLSLProgram::CompileShaders(const string& vertexShaderFilePath, const string& fragmentShaderFilePath)
 {
+	//Vertex and fragment shaders are successfully compiled.
+	//Now time to link them together into a program.
+	//Get a program object.
+	programID = glCreateProgram();
+
 	// initialize the vertex shader
 	vertexShaderID = glCreateShader(GL_VERTEX_SHADER);
 	if (vertexShaderID == 0)
@@ -88,11 +93,6 @@ void GLSLProgram::CompileShader(const string& filePath, GLuint& theVertexShaderI
 
 void GLSLProgram::LinkShaders()
 {
-	//Vertex and fragment shaders are successfully compiled.
-	//Now time to link them together into a program.
-	//Get a program object.
-	programID = glCreateProgram();
-
 	//Attach our shaders to our program
 	glAttachShader(programID, vertexShaderID);
 	glAttachShader(programID, fragmentShaderID);

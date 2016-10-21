@@ -1,9 +1,11 @@
 #version 130
 
-out vec3 color;
+in vec4 fragmentColor;
+
+out vec4 color;
 
 void main()
 {
-	// set the color red
-	color = vec3(1.0f, 0.0f, 1.0f);
+	// get the color from the vertex shader
+	color = fragmentColor;
 }
