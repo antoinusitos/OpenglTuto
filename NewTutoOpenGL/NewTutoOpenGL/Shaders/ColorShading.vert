@@ -8,6 +8,7 @@ in vec4 vertexColor;
 
 // send the color to the fragment shader
 out vec4 fragmentColor;
+out vec2 fragmentPosition;
 
 void main()
 {
@@ -18,6 +19,8 @@ void main()
 	
 	// indicates that the coordinates are normalized
 	gl_Position.w = 1.0f;
+	
+	fragmentPosition = vertexPosition;
 	
 	fragmentColor = vertexColor;
 }

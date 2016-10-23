@@ -1,5 +1,6 @@
 #version 130
 
+in vec2 fragmentPosition;
 in vec4 fragmentColor;
 
 // the final color of the vertex
@@ -10,5 +11,8 @@ uniform float time;
 void main()
 {
 	// get the color from the vertex shader
-	color = fragmentColor + vec3(1.0 * (cos(time)+1.0) * 0.5, 1.0 * (cos(time + 2.0)+1.0) * 0.5, 1.0 * (sin(time)+1.0) * 0.5);
-}
+	color = vec4(fragmentColor.r * (cos(fragmentPosition.x * 8.0 + time) + 1.0) *0.5,
+				 fragmentColor.g * (cos(fragmentPosition.y * 8.0  + time) + 1.0) *0.5,
+				 fragmentColor.b * (cos(fragmentPosition.x * 2.0 + time) + 1) *0.5,
+				 fragmentColor.a);
+}	

@@ -9,7 +9,7 @@ struct Position
 {
 	float x;
 	float y;
-}
+};
 
 struct Color
 {
@@ -17,7 +17,7 @@ struct Color
 	GLubyte g;
 	GLubyte b;
 	GLubyte a;
-}
+};
 
 struct Vertex
 {

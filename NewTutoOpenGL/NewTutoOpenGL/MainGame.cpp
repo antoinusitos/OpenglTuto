@@ -1,7 +1,7 @@
 #include "MainGame.h"
 #include "Errors.h"
 
-MainGame::MainGame() : time(0.0f), windowWidth(1024), windowHeight(0), window(nullptr), currentGameState(GameState::PLAY)
+MainGame::MainGame() : time(0.0f), windowWidth(1024), windowHeight(728), window(nullptr), currentGameState(GameState::PLAY)
 {
 }
 
