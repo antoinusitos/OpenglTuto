@@ -18,7 +18,7 @@ public:
 
 	void AddAttribute(const string& attributeName);
 
-	GLuint GetUniformLocation(const string& uniformName);
+	GLint GetUniformLocation(const string& uniformName);
 
 	void Use();
 	void Unuse();

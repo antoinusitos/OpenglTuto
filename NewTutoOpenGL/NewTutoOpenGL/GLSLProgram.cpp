@@ -140,7 +140,7 @@ void GLSLProgram::AddAttribute(const string& attributeName)
 GLuint GLSLProgram::GetUniformLocation(const string& uniformName)
 {
 	// get the uniform variable in the shader
-	GLuint location = glGetUniformLocation(programID, uniformName.c_str());
+	GLint location = glGetUniformLocation(programID, uniformName.c_str());
 	if (location == GL_INVALID_INDEX)
 	{
 		FatalError("Uniform " + uniformName + " not found in shader");
