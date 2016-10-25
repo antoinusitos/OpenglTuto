@@ -1,6 +1,6 @@
 #include "IOManager.h"
 
-bool IOManager::readFileToBuffer(string filePath, vector<char>& buffer)
+bool IOManager::readFileToBuffer(string filePath, vector<unsigned char>& buffer)
 {
 	// load the file and open it
 	ifstream file(filePath, ios::binary);
@@ -24,7 +24,7 @@ bool IOManager::readFileToBuffer(string filePath, vector<char>& buffer)
 	// allocate memory for the file
 	buffer.resize(fileSize);
 	//get the address of the first item 
-	file.read(&(buffer[0]), fileSize);
+	file.read((char *)&(buffer[0]), fileSize);
 	file.close();
 
 	return true;

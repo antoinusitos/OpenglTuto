@@ -6,7 +6,7 @@
 class IOManager
 {
 public:
-	static bool readFileToBuffer(string filePath, vector<char>& buffer);
+	static bool readFileToBuffer(string filePath, vector<unsigned char>& buffer);
 };
 
 #endif
