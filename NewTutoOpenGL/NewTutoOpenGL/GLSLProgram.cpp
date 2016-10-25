@@ -137,7 +137,7 @@ void GLSLProgram::AddAttribute(const string& attributeName)
 	numAttribute++;
 }
 
-GLuint GLSLProgram::GetUniformLocation(const string& uniformName)
+GLint GLSLProgram::GetUniformLocation(const string& uniformName)
 {
 	// get the uniform variable in the shader
 	GLint location = glGetUniformLocation(programID, uniformName.c_str());
