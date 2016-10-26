@@ -5,6 +5,7 @@
 #include "glew.h"
 
 #include "UserIncludes.h"
+#include "GLTexture.h"
 
 #include "Sprite.h"
 #include "GLSLProgram.h"

@@ -18,6 +18,8 @@ void MainGame::Run()
 	sprite = new Sprite();
 	sprite->Init(-1.0f, -1.0f, 2.0f, 2.0f);
 
+	//playerTexture = ImageLoader::LoadPNG("Textures/jimmyJump_pack/PNG/CharacterRight_Standing.png");
+
 	GameLoop();
 }
 
@@ -63,6 +65,7 @@ void MainGame::InitShaders()
 	colorProgram->CompileShaders("Shaders/ColorShading.vert", "Shaders/ColorShading.frag");
 	colorProgram->AddAttribute("vertexPosition");
 	colorProgram->AddAttribute("vertexColor");
+	colorProgram->AddAttribute("vertexUV");
 	colorProgram->LinkShaders();
 }
 
@@ -113,11 +116,15 @@ void MainGame::DrawGame()
 		FatalError("colorProgram not initialized !");
 		return;
 	}
+
 	// bind the input of the shader
 	colorProgram->Use();
+	glActiveTexture(GL_TEXTURE0);
+	//glBindTexture(GL_TEXTURE_2D, playerTexture.id);
+	GLint textureLocation = colorProgram->GetUniformLocation("mySampler");
+	glUniform1i(textureLocation, 0);
 
 	GLuint timeLocation = colorProgram->GetUniformLocation("time");
-
 	// send the time to the graphic card
 	glUniform1f(timeLocation, time);
 
@@ -125,6 +132,7 @@ void MainGame::DrawGame()
 	sprite->Draw();
 
 	// unbind the input of the shader
+	glBindTexture(GL_TEXTURE_2D, 0);
 	colorProgram->Unuse();
 
 	// swap the buffer and draw everything
