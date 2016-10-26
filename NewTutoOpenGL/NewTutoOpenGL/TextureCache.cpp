@@ -1,6 +1,8 @@
 #include "TextureCache.h"
 #include "ImageLoader.h"
 
+#include <iostream>
+
 TextureCache::TextureCache()
 {
 }
@@ -25,8 +27,12 @@ GLTexture TextureCache::GetTexture(string path)
 		// insert it into the map
 		textureMap.insert(make_pair(path, newTexture));
 
+		cout << "loaded texture ! \n";
+
 		return newTexture;
 	}
+
+	cout << "used cached texture ! \n";
 
 	return mit->second;
 }

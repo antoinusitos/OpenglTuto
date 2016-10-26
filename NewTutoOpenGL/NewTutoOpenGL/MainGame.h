@@ -39,7 +39,7 @@ private:
 
 	GameState currentGameState;
 
-	Sprite* sprite;
+	vector<Sprite*> sprites;
 
 	GLSLProgram* colorProgram;
 

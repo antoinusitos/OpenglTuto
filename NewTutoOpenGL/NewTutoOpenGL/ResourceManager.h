@@ -11,8 +11,6 @@ class ResourceManager
 public:
 	static GLTexture GetTexture(string path);
 
-	static GLuint boudTexture;
-
 private:
 	static TextureCache textureCache;
 };

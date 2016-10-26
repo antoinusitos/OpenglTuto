@@ -7,7 +7,10 @@ MainGame::MainGame() : time(0.0f), windowWidth(1024), windowHeight(728), window(
 
 MainGame::~MainGame()
 {
-	delete sprite;
+	for (int i = 0; i < sprites.size(); ++i)
+	{
+		delete sprites[i];
+	}
 	delete colorProgram;
 }
 
@@ -15,10 +18,11 @@ void MainGame::Run()
 {
 	InitSystem();
 
-	sprite = new Sprite();
-	sprite->Init(-1.0f, -1.0f, 2.0f, 2.0f);
+	sprites.push_back(new Sprite());
+	sprites.back()->Init(-1.0f, -1.0f, 1.0f, 1.0f, "Textures/jimmyJump_pack/PNG/CharacterRight_Standing.png");
 
-	//playerTexture = ImageLoader::LoadPNG("Textures/jimmyJump_pack/PNG/CharacterRight_Standing.png");
+	sprites.push_back(new Sprite());
+	sprites.back()->Init(0.0f, -1.0f, 1.0f, 1.0f, "Textures/jimmyJump_pack/PNG/CharacterRight_Standing.png");
 
 	GameLoop();
 }
@@ -128,8 +132,11 @@ void MainGame::DrawGame()
 	// send the time to the graphic card
 	glUniform1f(timeLocation, time);
 
-	// draw the sprite
-	sprite->Draw();
+	// draw the sprites
+	for (int i = 0; i < sprites.size(); ++i)
+	{
+		sprites[i]->Draw();
+	}
 
 	// unbind the input of the shader
 	glBindTexture(GL_TEXTURE_2D, 0);
