@@ -42,7 +42,6 @@ private:
 	Sprite* sprite;
 
 	GLSLProgram* colorProgram;
-	GLTexture playerTexture;
 
 	float time;
 };

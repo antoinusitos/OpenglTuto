@@ -1,6 +1,5 @@
 #include "MainGame.h"
 #include "Errors.h"
-#include "ImageLoader.h"
 
 MainGame::MainGame() : time(0.0f), windowWidth(1024), windowHeight(728), window(nullptr), currentGameState(GameState::PLAY)
 {
@@ -19,7 +18,7 @@ void MainGame::Run()
 	sprite = new Sprite();
 	sprite->Init(-1.0f, -1.0f, 2.0f, 2.0f);
 
-	playerTexture = ImageLoader::LoadPNG("Textures/jimmyJump_pack/PNG/CharacterRight_Standing.png");
+	//playerTexture = ImageLoader::LoadPNG("Textures/jimmyJump_pack/PNG/CharacterRight_Standing.png");
 
 	GameLoop();
 }
@@ -121,7 +120,7 @@ void MainGame::DrawGame()
 	// bind the input of the shader
 	colorProgram->Use();
 	glActiveTexture(GL_TEXTURE0);
-	glBindTexture(GL_TEXTURE_2D, playerTexture.id);
+	//glBindTexture(GL_TEXTURE_2D, playerTexture.id);
 	GLint textureLocation = colorProgram->GetUniformLocation("mySampler");
 	glUniform1i(textureLocation, 0);
 

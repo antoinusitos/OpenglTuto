@@ -1,5 +1,6 @@
 #include "Sprite.h"
 #include "Vertex.h"
+#include "ResourceManager.h"
 
 #include <cstddef>
 
@@ -17,12 +18,14 @@ Sprite::~Sprite()
 	}
 }
 
-void Sprite::Init(float initX, float initY, float initWidth, float initHeight)
+void Sprite::Init(float initX, float initY, float initWidth, float initHeight, string path)
 {
 	x = initX;
 	y = initY;
 	width = initWidth;
 	height = initHeight;
+
+	texture = ResourceManager::GetTexture(path);
 
 	// convert the coordinates from plan (-1,1) to screen (0,1)
 
@@ -76,6 +79,9 @@ void Sprite::Init(float initX, float initY, float initWidth, float initHeight)
 
 void Sprite::Draw()
 {
+	// bind the texture
+	glBindTexture(GL_TEXTURE_2D, texture.id);
+
 	// declare a buffer for the vbo
 	glBindBuffer(GL_ARRAY_BUFFER, vboID);
 
