@@ -69,8 +69,8 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>$(ProjectDir)glew-2.0.0\include\GL;$(ProjectDir)SDL2-2.0.4\include;$(ProjectDir)glm\glm;$(ProjectDir)SDL2_image-2.0.1\include;$(IncludePath)</IncludePath>
-    <LibraryPath>$(ProjectDir)SDL2-2.0.4\lib\x86;$(ProjectDir)glew-2.0.0\lib\Release\Win32;$(ProjectDir)SDL2_image-2.0.1\lib\x86;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(ProjectDir)glew-2.0.0\include\GL;$(ProjectDir)SDL2-2.0.4\include;$(ProjectDir)glm\glm;$(ProjectDir)SDL2_image-2.0.1\include;$(SolutionDir)OpenGLEngine;$(IncludePath)</IncludePath>
+    <LibraryPath>$(ProjectDir)SDL2-2.0.4\lib\x86;$(ProjectDir)glew-2.0.0\lib\Release\Win32;$(ProjectDir)SDL2_image-2.0.1\lib\x86;$(SolutionDir)Debug;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -80,7 +80,7 @@
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;opengl32.lib;glew32.lib;SDL2_image.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;opengl32.lib;glew32.lib;SDL2_image.lib;OpenGLEngine.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>Console</SubSystem>
     </Link>
   </ItemDefinitionGroup>
@@ -123,30 +123,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Errors.cpp" />
-    <ClCompile Include="GLSLProgram.cpp" />
-    <ClCompile Include="ImageLoader.cpp" />
-    <ClCompile Include="IOManager.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MainGame.cpp" />
-    <ClCompile Include="picoPNG.cpp" />
-    <ClCompile Include="ResourceManager.cpp" />
-    <ClCompile Include="Sprite.cpp" />
-    <ClCompile Include="TextureCache.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Errors.h" />
-    <ClInclude Include="GLSLProgram.h" />
-    <ClInclude Include="GLTexture.h" />
-    <ClInclude Include="ImageLoader.h" />
-    <ClInclude Include="IOManager.h" />
     <ClInclude Include="MainGame.h" />
-    <ClInclude Include="picoPNG.h" />
-    <ClInclude Include="ResourceManager.h" />
-    <ClInclude Include="Sprite.h" />
-    <ClInclude Include="TextureCache.h" />
-    <ClInclude Include="UserIncludes.h" />
-    <ClInclude Include="Vertex.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
