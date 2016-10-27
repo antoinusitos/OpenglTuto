@@ -70,8 +70,8 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>$(ProjectDir)glew-2.0.0\include\GL;$(ProjectDir)SDL2-2.0.4\include;$(ProjectDir)glm\glm;$(ProjectDir)SDL2_image-2.0.1\include;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
-    <LibraryPath>$(ProjectDir)SDL2-2.0.4\lib\x86;$(ProjectDir)glew-2.0.0\lib\Release\Win32;$(ProjectDir)SDL2_image-2.0.1\lib\x86;$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86);$(NETFXKitsDir)Lib\um\x86</LibraryPath>
+    <IncludePath>$(SolutionDir)includes\glew-2.0.0\include\GL;$(SolutionDir)includes\SDL2-2.0.4\include;$(SolutionDir)includes\glm\glm;$(SolutionDir)includes\SDL2_image-2.0.1\include;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)includes\SDL2-2.0.4\lib\x86;$(SolutionDir)includes\glew-2.0.0\lib\Release\Win32;$(SolutionDir)includes\SDL2_image-2.0.1\lib\x86;$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86);$(NETFXKitsDir)Lib\um\x86</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>

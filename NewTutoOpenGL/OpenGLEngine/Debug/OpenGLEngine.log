@@ -1,0 +1,19 @@
+﻿C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(392,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (NewTutoOpenGL.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  TextureCache.cpp
+  Sprite.cpp
+  ResourceManager.cpp
+  picoPNG.cpp
+  IOManager.cpp
+d:\dev\git\opengltuto\newtutoopengl\openglengine\iomanager.cpp(17): warning C4244: 'initializing': conversion from 'std::streamoff' to 'int', possible loss of data
+d:\dev\git\opengltuto\newtutoopengl\openglengine\iomanager.cpp(22): warning C4244: '-=': conversion from 'std::streamoff' to 'int', possible loss of data
+  ImageLoader.cpp
+  GLSLProgram.cpp
+  Errors.cpp
+  Generating Code...
+opengl32.lib(OPENGL32.dll) : warning LNK4006: __NULL_IMPORT_DESCRIPTOR already defined in SDL2.lib(SDL2.dll); second definition ignored
+opengl32.lib(OPENGL32.dll) : warning LNK4221: This object file does not define any previously undefined public symbols, so it will not be used by any link operation that consumes this library
+glew32.lib(glew32.dll) : warning LNK4006: __NULL_IMPORT_DESCRIPTOR already defined in SDL2.lib(SDL2.dll); second definition ignored
+glew32.lib(glew32.dll) : warning LNK4221: This object file does not define any previously undefined public symbols, so it will not be used by any link operation that consumes this library
+SDL2_image.lib(SDL2_image.dll) : warning LNK4006: __NULL_IMPORT_DESCRIPTOR already defined in SDL2.lib(SDL2.dll); second definition ignored
+SDL2_image.lib(SDL2_image.dll) : warning LNK4221: This object file does not define any previously undefined public symbols, so it will not be used by any link operation that consumes this library
+  OpenGLEngine.vcxproj -> D:\Dev\git\openGLTuto\NewTutoOpenGL\Debug\OpenGLEngine.lib
