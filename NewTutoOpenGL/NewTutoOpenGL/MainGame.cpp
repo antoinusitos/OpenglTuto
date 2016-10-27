@@ -32,6 +32,9 @@ void MainGame::InitSystem()
 	// Initialize SDL
 	SDL_Init(SDL_INIT_EVERYTHING);
 
+	// init sdl
+	SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
+
 	// create the window
 	window = SDL_CreateWindow("Game Engine", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, windowWidth, windowHeight, SDL_WINDOW_OPENGL);
 
@@ -54,11 +57,14 @@ void MainGame::InitSystem()
 		FatalError("could not be initialize glew!");
 	}
 
-	// init sdl
-	SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
+	// check the OpenGL Version
+	printf("***   OpenGL Version : %s   ***\n", glGetString(GL_VERSION));
 
 	// put a blue clear screen
 	glClearColor(0.0f, 0.0f, 1.0f, 1.0f);
+
+	// set vsync off
+	SDL_GL_SetSwapInterval(0);
 
 	InitShaders();
 }
