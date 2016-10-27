@@ -1,38 +1,43 @@
 #ifndef DEF_GLSLPROGRAM
 #define DEF_GLSLPROGRAM
 
-#include "UserIncludes.h"
-
 #include "glew.h"
 #include "SDL.h"
 
-class GLSLProgram
+#include <string>
+
+namespace OpenGLEngine
 {
-public:
-	GLSLProgram();
-	~GLSLProgram();
 
-	void CompileShaders(const string& vertexShaderFilePath, const string& fragmentShaderFilePath);
+	using namespace std;
 
-	void LinkShaders();
+	class GLSLProgram
+	{
+	public:
+		GLSLProgram();
+		~GLSLProgram();
 
-	void AddAttribute(const string& attributeName);
+		void CompileShaders(const string& vertexShaderFilePath, const string& fragmentShaderFilePath);
 
-	GLint GetUniformLocation(const string& uniformName);
+		void LinkShaders();
 
-	void Use();
-	void Unuse();
+		void AddAttribute(const string& attributeName);
 
-private:
+		GLint GetUniformLocation(const string& uniformName);
 
-	int numAttribute;
+		void Use();
+		void Unuse();
 
-	void CompileShader(const string& filePath, GLuint& theVertexShaderID);
+	private:
 
-	GLuint programID;
+		int numAttribute;
 
-	GLuint vertexShaderID;
-	GLuint fragmentShaderID;
-};
+		void CompileShader(const string& filePath, GLuint& theVertexShaderID);
 
+		GLuint programID;
+
+		GLuint vertexShaderID;
+		GLuint fragmentShaderID;
+	};
+}
 #endif

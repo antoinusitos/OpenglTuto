@@ -1,12 +1,21 @@
 #ifndef DEF_IOMANAGER
 #define DEF_IOMANAGER
 
-#include "UserIncludes.h"
+#include <vector>
+#include <string>
+#include <fstream>
 
-class IOManager
+namespace OpenGLEngine
 {
-public:
-	static bool readFileToBuffer(string filePath, vector<unsigned char>& buffer);
-};
+
+	using namespace std;
+
+	class IOManager
+	{
+	public:
+		static bool readFileToBuffer(string filePath, vector<unsigned char>& buffer);
+	};
+
+}
 
 #endif

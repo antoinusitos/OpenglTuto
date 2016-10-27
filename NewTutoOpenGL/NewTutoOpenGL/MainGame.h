@@ -4,11 +4,17 @@
 #include "SDL.h"
 #include "glew.h"
 
-#include "UserIncludes.h"
-#include "GLTexture.h"
+#include <OpenGLEngine/OpenGLEngine.h>
 
-#include "Sprite.h"
-#include "GLSLProgram.h"
+#include <OpenGLEngine/GLTexture.h>
+#include <OpenGLEngine/GLSLProgram.h>
+#include <OpenGLEngine/Sprite.h>
+#include <OpenGLEngine/Window.h>
+
+#include <vector>
+
+using namespace std;
+using namespace OpenGLEngine;
 
 enum class GameState
 {
@@ -34,7 +40,7 @@ private:
 	void DrawGame();
 	void CalculateFPS();
 
-	SDL_Window* window;
+	Window* window;
 	int windowWidth;
 	int windowHeight;
 

@@ -1,5 +1,5 @@
 #include "MainGame.h"
-#include "Errors.h"
+#include <OpenGLEngine/Errors.h>
 
 MainGame::MainGame() : time(0.0f), windowWidth(1024), windowHeight(728), window(nullptr), currentGameState(GameState::PLAY), maxFPS(60.0f)
 {
@@ -29,42 +29,11 @@ void MainGame::Run()
 
 void MainGame::InitSystem()
 {
-	// Initialize SDL
-	SDL_Init(SDL_INIT_EVERYTHING);
+	Init();
 
-	// init sdl
-	SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
+	window = new Window();
 
-	// create the window
-	window = SDL_CreateWindow("Game Engine", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, windowWidth, windowHeight, SDL_WINDOW_OPENGL);
-
-	if (window == nullptr)
-	{
-		FatalError("SDL Window could not be created!");
-	}
-
-	// create a context for the window
-	SDL_GLContext glContext = SDL_GL_CreateContext(window);
-	if (glContext == nullptr)
-	{
-		FatalError("SDL_GL Context could not be created!");
-	}
-
-	// init glew
-	GLenum error = glewInit();
-	if (error != GLEW_OK)
-	{
-		FatalError("could not be initialize glew!");
-	}
-
-	// check the OpenGL Version
-	printf("***   OpenGL Version : %s   ***\n", glGetString(GL_VERSION));
-
-	// put a blue clear screen
-	glClearColor(0.0f, 0.0f, 1.0f, 1.0f);
-
-	// set vsync off
-	SDL_GL_SetSwapInterval(0);
+	window->Create("Game Engine", windowWidth, windowHeight, 0);
 
 	InitShaders();
 }
@@ -168,8 +137,7 @@ void MainGame::DrawGame()
 	glBindTexture(GL_TEXTURE_2D, 0);
 	colorProgram->Unuse();
 
-	// swap the buffer and draw everything
-	SDL_GL_SwapWindow(window);
+	window->SwapBuffer();
 }
 
 void MainGame::CalculateFPS()

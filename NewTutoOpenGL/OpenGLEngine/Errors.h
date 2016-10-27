@@ -1,8 +1,18 @@
 #ifndef DEF_ERRORS
 #define DEF_ERRORS
 
-#include "UserIncludes.h"
+#include <string>
+#include <vector>
+#include <iostream>
+#include <fstream>
 
-extern void FatalError(string errorString);
+namespace OpenGLEngine
+{
+
+	using namespace std;
+
+	extern void FatalError(string errorString);
+
+}
 
 #endif

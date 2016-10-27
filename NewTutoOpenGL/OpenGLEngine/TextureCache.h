@@ -4,18 +4,23 @@
 #include <map>
 #include "GLTexture.h"
 
-using namespace std;
-
-class TextureCache
+namespace OpenGLEngine
 {
-public:
-	TextureCache();
-	~TextureCache();
 
-	GLTexture GetTexture(string path);
+	using namespace std;
 
-private:
-	map<string, GLTexture> textureMap;
-};
+	class TextureCache
+	{
+	public:
+		TextureCache();
+		~TextureCache();
+
+		GLTexture GetTexture(string path);
+
+	private:
+		map<string, GLTexture> textureMap;
+	};
+
+}
 
 #endif

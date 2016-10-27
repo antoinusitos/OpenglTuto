@@ -3,11 +3,18 @@
 
 #include "glew.h"
 
-struct GLTexture
+namespace OpenGLEngine
 {
-	GLuint id;
-	int width;
-	int height;
-};
+
+	using namespace std;
+
+	struct GLTexture
+	{
+		GLuint id;
+		int width;
+		int height;
+	};
+
+}
 
 #endif

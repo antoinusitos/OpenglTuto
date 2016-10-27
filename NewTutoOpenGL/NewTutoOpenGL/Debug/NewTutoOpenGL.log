@@ -1,5 +1,9 @@
-﻿  Skipping... (no relevant changes detected)
-  main.cpp
-  MainGame.cpp
+﻿  MainGame.cpp
+d:\dev\git\opengltuto\newtutoopengl\newtutoopengl\maingame.cpp(10): warning C4018: '<': signed/unsigned mismatch
+d:\dev\git\opengltuto\newtutoopengl\newtutoopengl\maingame.cpp(56): warning C4244: 'initializing': conversion from 'Uint32' to 'float', possible loss of data
+d:\dev\git\opengltuto\newtutoopengl\newtutoopengl\maingame.cpp(76): warning C4244: 'argument': conversion from 'float' to 'Uint32', possible loss of data
+d:\dev\git\opengltuto\newtutoopengl\newtutoopengl\maingame.cpp(131): warning C4018: '<': signed/unsigned mismatch
+d:\dev\git\opengltuto\newtutoopengl\newtutoopengl\maingame.cpp(149): warning C4244: 'initializing': conversion from 'Uint32' to 'float', possible loss of data
+d:\dev\git\opengltuto\newtutoopengl\newtutoopengl\maingame.cpp(152): warning C4244: '=': conversion from 'Uint32' to 'float', possible loss of data
   NewTutoOpenGL.vcxproj -> D:\Dev\git\openGLTuto\NewTutoOpenGL\Debug\NewTutoOpenGL.exe
   NewTutoOpenGL.vcxproj -> D:\Dev\git\openGLTuto\NewTutoOpenGL\Debug\NewTutoOpenGL.pdb (Full PDB)
