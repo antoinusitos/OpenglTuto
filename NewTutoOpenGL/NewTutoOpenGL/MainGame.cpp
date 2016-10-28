@@ -86,6 +86,10 @@ void MainGame::GameLoop()
 void MainGame::ProcessInput()
 {
 	SDL_Event theEvent;
+
+	const float CAMERA_SPEED = 20.0f;
+	const float SCALE_SPEED = 0.1f;
+
 	while (SDL_PollEvent(&theEvent))
 	{
 		switch (theEvent.type)
@@ -97,14 +101,42 @@ void MainGame::ProcessInput()
 		case SDL_MOUSEMOTION:
 			//cout << theEvent.motion.x << " " << theEvent.motion.y << endl;
 			break;
-		}
-		switch (theEvent.key.keysym.scancode)
-		{
 
-		case SDL_SCANCODE_ESCAPE:
-			currentGameState = GameState::EXIT;
+		case SDL_KEYDOWN:
+			switch (theEvent.key.keysym.sym)
+			{
+
+			case SDLK_ESCAPE:
+				currentGameState = GameState::EXIT;
+				break;
+
+			case SDLK_z:
+				camera->SetPosition(camera->GetPosition() + glm::vec2(0.0f, CAMERA_SPEED));
+				break;
+
+			case SDLK_s:
+				camera->SetPosition(camera->GetPosition() + glm::vec2(0.0f, -CAMERA_SPEED));
+				break;
+
+			case SDLK_q:
+				camera->SetPosition(camera->GetPosition() + glm::vec2(-CAMERA_SPEED, 0.0f));
+				break;
+
+			case SDLK_d:
+				camera->SetPosition(camera->GetPosition() + glm::vec2(CAMERA_SPEED, 0.0f));
+				break;
+
+			case SDLK_a:
+				camera->SetScale(camera->GetScale() + SCALE_SPEED);
+				break;
+
+			case SDLK_e:
+				camera->SetScale(camera->GetScale() - SCALE_SPEED);
+				break;
+			}
 			break;
 		}
+		
 	}
 }
 

@@ -29,10 +29,15 @@ namespace OpenGLEngine
 	{
 		if (needsMatrixUpdate)
 		{
-			glm::vec3 translate(-position.x, -position.y, 0.0f);
+			// camera translation
+			glm::vec3 translate(-position.x + screenWidth / 2, -position.y + screenHeight / 2, 0.0f);
 			cameraMatrix = glm::translate(orthoMatrix, translate);
+
+			// camera scale
 			glm::vec3 matrixScale(scale, scale, 0.0f);
-			cameraMatrix = glm::scale(cameraMatrix, matrixScale);
+			// scale the matrix identity and apply it to our current scale
+			cameraMatrix = glm::scale(glm::mat4(1.0f), matrixScale) * cameraMatrix;
+			
 			needsMatrixUpdate = false;
 		}
 	}
