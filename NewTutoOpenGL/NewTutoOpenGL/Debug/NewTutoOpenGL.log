@@ -1,9 +1,22 @@
-﻿  MainGame.cpp
-d:\dev\git\opengltuto\newtutoopengl\newtutoopengl\maingame.cpp(10): warning C4018: '<': signed/unsigned mismatch
-d:\dev\git\opengltuto\newtutoopengl\newtutoopengl\maingame.cpp(56): warning C4244: 'initializing': conversion from 'Uint32' to 'float', possible loss of data
-d:\dev\git\opengltuto\newtutoopengl\newtutoopengl\maingame.cpp(76): warning C4244: 'argument': conversion from 'float' to 'Uint32', possible loss of data
-d:\dev\git\opengltuto\newtutoopengl\newtutoopengl\maingame.cpp(131): warning C4018: '<': signed/unsigned mismatch
-d:\dev\git\opengltuto\newtutoopengl\newtutoopengl\maingame.cpp(149): warning C4244: 'initializing': conversion from 'Uint32' to 'float', possible loss of data
-d:\dev\git\opengltuto\newtutoopengl\newtutoopengl\maingame.cpp(152): warning C4244: '=': conversion from 'Uint32' to 'float', possible loss of data
-  NewTutoOpenGL.vcxproj -> D:\Dev\git\openGLTuto\NewTutoOpenGL\Debug\NewTutoOpenGL.exe
-  NewTutoOpenGL.vcxproj -> D:\Dev\git\openGLTuto\NewTutoOpenGL\Debug\NewTutoOpenGL.pdb (Full PDB)
+﻿Build started 28/10/2016 08:50:07.
+     1>Project "D:\dev\git\openglTuto\NewTutoOpenGL\NewTutoOpenGL\NewTutoOpenGL.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\" /Fd"Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:prompt MainGame.cpp
+         MainGame.cpp
+     1>d:\dev\git\opengltuto\newtutoopengl\newtutoopengl\maingame.cpp(12): warning C4018: '<': signed/unsigned mismatch
+     1>d:\dev\git\opengltuto\newtutoopengl\newtutoopengl\maingame.cpp(24): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+     1>d:\dev\git\opengltuto\newtutoopengl\newtutoopengl\maingame.cpp(27): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+     1>d:\dev\git\opengltuto\newtutoopengl\newtutoopengl\maingame.cpp(58): warning C4244: 'initializing': conversion from 'Uint32' to 'float', possible loss of data
+     1>d:\dev\git\opengltuto\newtutoopengl\newtutoopengl\maingame.cpp(81): warning C4244: 'argument': conversion from 'float' to 'Uint32', possible loss of data
+     1>d:\dev\git\opengltuto\newtutoopengl\newtutoopengl\maingame.cpp(144): warning C4018: '<': signed/unsigned mismatch
+     1>d:\dev\git\opengltuto\newtutoopengl\newtutoopengl\maingame.cpp(162): warning C4244: 'initializing': conversion from 'Uint32' to 'float', possible loss of data
+     1>d:\dev\git\opengltuto\newtutoopengl\newtutoopengl\maingame.cpp(165): warning C4244: '=': conversion from 'Uint32' to 'float', possible loss of data
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\dev\git\openglTuto\NewTutoOpenGL\Debug\NewTutoOpenGL.exe" /INCREMENTAL /NOLOGO SDL2.lib SDL2main.lib opengl32.lib glew32.lib SDL2_image.lib OpenGLEngine.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /Debug /PDB:"D:\dev\git\openglTuto\NewTutoOpenGL\Debug\NewTutoOpenGL.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\dev\git\openglTuto\NewTutoOpenGL\Debug\NewTutoOpenGL.lib" /MACHINE:X86 Debug\main.obj
+         Debug\MainGame.obj
+         NewTutoOpenGL.vcxproj -> D:\dev\git\openglTuto\NewTutoOpenGL\Debug\NewTutoOpenGL.exe
+     1>Done Building Project "D:\dev\git\openglTuto\NewTutoOpenGL\NewTutoOpenGL\NewTutoOpenGL.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:01.12

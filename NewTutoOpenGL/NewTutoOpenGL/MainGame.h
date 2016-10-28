@@ -10,11 +10,9 @@
 #include <OpenGLEngine/GLSLProgram.h>
 #include <OpenGLEngine/Sprite.h>
 #include <OpenGLEngine/Window.h>
+#include <OpenGLEngine/Camera2D.h>
 
 #include <vector>
-
-using namespace std;
-using namespace OpenGLEngine;
 
 enum class GameState
 {
@@ -40,15 +38,16 @@ private:
 	void DrawGame();
 	void CalculateFPS();
 
-	Window* window;
+	OpenGLEngine::Window* window;
 	int windowWidth;
 	int windowHeight;
 
 	GameState currentGameState;
 
-	vector<Sprite*> sprites;
+	vector<OpenGLEngine::Sprite*> sprites;
 
-	GLSLProgram* colorProgram;
+	OpenGLEngine::GLSLProgram* colorProgram;
+	OpenGLEngine::Camera2D* camera;
 
 	float fps;
 	float frameTime;

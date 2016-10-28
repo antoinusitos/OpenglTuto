@@ -3,6 +3,8 @@
 
 MainGame::MainGame() : time(0.0f), windowWidth(1024), windowHeight(728), window(nullptr), currentGameState(GameState::PLAY), maxFPS(60.0f)
 {
+	camera = new OpenGLEngine::Camera2D();
+	camera->Init(windowWidth, windowHeight);
 }
 
 MainGame::~MainGame()
@@ -18,20 +20,20 @@ void MainGame::Run()
 {
 	InitSystem();
 
-	sprites.push_back(new Sprite());
-	sprites.back()->Init(-1.0f, -1.0f, 1.0f, 1.0f, "Textures/jimmyJump_pack/PNG/CharacterRight_Standing.png");
+	sprites.push_back(new OpenGLEngine::Sprite());
+	sprites.back()->Init(0.0f, 0.0f, windowWidth / 2, windowWidth / 2, "Textures/jimmyJump_pack/PNG/CharacterRight_Standing.png");
 
-	sprites.push_back(new Sprite());
-	sprites.back()->Init(0.0f, -1.0f, 1.0f, 1.0f, "Textures/jimmyJump_pack/PNG/CharacterRight_Standing.png");
+	sprites.push_back(new OpenGLEngine::Sprite());
+	sprites.back()->Init(windowWidth / 2, 0.0f, windowWidth / 2, windowWidth / 2, "Textures/jimmyJump_pack/PNG/CharacterRight_Standing.png");
 
 	GameLoop();
 }
 
 void MainGame::InitSystem()
 {
-	Init();
+	OpenGLEngine::Init();
 
-	window = new Window();
+	window = new OpenGLEngine::Window();
 
 	window->Create("Game Engine", windowWidth, windowHeight, 0);
 
@@ -40,7 +42,7 @@ void MainGame::InitSystem()
 
 void MainGame::InitShaders()
 {
-	colorProgram = new GLSLProgram();
+	colorProgram = new OpenGLEngine::GLSLProgram();
 	colorProgram->CompileShaders("Shaders/ColorShading.vert", "Shaders/ColorShading.frag");
 	colorProgram->AddAttribute("vertexPosition");
 	colorProgram->AddAttribute("vertexColor");
@@ -57,6 +59,9 @@ void MainGame::GameLoop()
 
 		ProcessInput();
 		time += 0.01f;
+
+		camera->Update();
+
 		DrawGame();
 		CalculateFPS();
 
@@ -112,7 +117,7 @@ void MainGame::DrawGame()
 
 	if (!colorProgram)
 	{
-		FatalError("colorProgram not initialized !");
+		OpenGLEngine::FatalError("colorProgram not initialized !");
 		return;
 	}
 
@@ -123,9 +128,17 @@ void MainGame::DrawGame()
 	GLint textureLocation = colorProgram->GetUniformLocation("mySampler");
 	glUniform1i(textureLocation, 0);
 
+	// set the constantly changing time variable
 	GLuint timeLocation = colorProgram->GetUniformLocation("time");
 	// send the time to the graphic card
 	glUniform1f(timeLocation, time);
+
+	// set the camera matrix
+	GLuint pLocation = colorProgram->GetUniformLocation("P");
+	glm::mat4 cameraMatrix = camera->GetCameraMatrix();
+
+	// send a pointer to the first element in the shader
+	glUniformMatrix4fv(pLocation, 1, GL_FALSE, &(cameraMatrix[0][0]));
 
 	// draw the sprites
 	for (int i = 0; i < sprites.size(); ++i)
