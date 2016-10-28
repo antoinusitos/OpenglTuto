@@ -1,9 +1,12 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "NewTutoOpenGL", "NewTutoOpenGL\NewTutoOpenGL.vcxproj", "{ECC20D6D-129F-428E-8521-3EA660AAD41B}"
+	ProjectSection(ProjectDependencies) = postProject
+		{AEDDCFC0-3F25-4AD9-94B9-6174D2FDEA8F} = {AEDDCFC0-3F25-4AD9-94B9-6174D2FDEA8F}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "OpenGLEngine", "OpenGLEngine\OpenGLEngine.vcxproj", "{AEDDCFC0-3F25-4AD9-94B9-6174D2FDEA8F}"
 EndProject
