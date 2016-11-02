@@ -2,10 +2,21 @@
 #define DEF_SPRITEBATCH
 
 #include <glew.h>
+#include <glm.hpp>
+#include <vector>
 #include "Vertex.h"
 
 namespace OpenGLEngine
 {
+
+	enum class GlyphSortType
+	{
+		NONE,
+		FRONT_TO_BACK,
+		BACK_TO_FRONT,
+		TEXTURE,
+	};
+
 	// just a single sprite (all the infos)
 	struct Glyph
 	{
@@ -18,6 +29,11 @@ namespace OpenGLEngine
 		Vertex bottomRight;
 	};
 
+	class RenderBatch
+	{
+
+	};
+
 	class SpriteBatch
 	{
 	public:
@@ -28,18 +44,30 @@ namespace OpenGLEngine
 		void Init();
 
 		// set everything up and set ready for drawing 
-		void Begin();
+		void Begin(GlyphSortType theSortType = GlyphSortType::TEXTURE);
 		// set post-precessing stuff (sort, etc.)
 		void End();
 
 		// add all sprite we want to draw in this batch
-		void Draw();
+		void Draw(const glm::vec4& destRect, const glm::vec4& uvRect, GLuint texture, float depth, const Color& color);
 		// render this batch on the screen
 		void RenderBatch();
 
 	private:
+		void CreateVertexArray();
+
+		void SortGlyphs();
+
+		static bool CompareFrontToBack(Glyph* a, Glyph* b);
+		static bool CompareBackToFront(Glyph* a, Glyph* b);
+		static bool CompareTexture(Glyph* a, Glyph* b);
+
 		GLuint vbo;
 		GLuint vao;
+
+		GlyphSortType sortType;
+
+		std::vector<Glyph*> glyphs;
 	};
 }
 

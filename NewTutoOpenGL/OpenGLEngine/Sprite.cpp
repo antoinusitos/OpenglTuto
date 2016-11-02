@@ -88,21 +88,15 @@ namespace OpenGLEngine
 		// declare a buffer for the vbo
 		glBindBuffer(GL_ARRAY_BUFFER, vboID);
 
-		// attribute the index 0 to the buffer
-		glEnableVertexAttribArray(0);
-
-		// this is the position attribute pointer
-		glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)offsetof(Vertex, position));
-		// this is the color attribute pointer (normalized)
-		glVertexAttribPointer(1, 4, GL_UNSIGNED_BYTE, GL_TRUE, sizeof(Vertex), (void*)offsetof(Vertex, color));
-		// this is the uv attribute pointer
-		glVertexAttribPointer(2, 2, GL_FLOAT, GL_TRUE, sizeof(Vertex), (void*)offsetof(Vertex, uv));
+		
 
 		// Draw 6 vertices
 		glDrawArrays(GL_TRIANGLES, 0, 6);
 
 		// disable the buffer
 		glDisableVertexAttribArray(0);
+		glDisableVertexAttribArray(1);
+		glDisableVertexAttribArray(2);
 
 		// unbind the buffer
 		glBindBuffer(GL_ARRAY_BUFFER, 0);
