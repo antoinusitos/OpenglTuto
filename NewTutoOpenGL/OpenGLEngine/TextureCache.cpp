@@ -35,8 +35,6 @@ namespace OpenGLEngine
 			return newTexture;
 		}
 
-		cout << "used cached texture ! \n";
-
 		return mit->second;
 	}
 

@@ -4,14 +4,14 @@
 #include "SDL.h"
 #include "glew.h"
 
-#include <OpenGLEngine.h>
+#include <OpenGLEngine/OpenGLEngine.h>
 
-#include <GLTexture.h>
-#include <GLSLProgram.h>
-#include <Sprite.h>
-#include <Window.h>
-#include <Camera2D.h>
-#include <SpriteBatch.h>
+#include <OpenGLEngine/GLTexture.h>
+#include <OpenGLEngine/GLSLProgram.h>
+#include <OpenGLEngine/Sprite.h>
+#include <OpenGLEngine/Window.h>
+#include <OpenGLEngine/Camera2D.h>
+#include <OpenGLEngine/SpriteBatch.h>
 
 #include <vector>
 

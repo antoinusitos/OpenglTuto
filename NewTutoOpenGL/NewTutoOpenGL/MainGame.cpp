@@ -1,6 +1,6 @@
 #include "MainGame.h"
-#include <Errors.h>
-#include <ResourceManager.h>
+#include <OpenGLEngine/Errors.h>
+#include <OpenGLEngine/ResourceManager.h>
 
 MainGame::MainGame() : time(0.0f), windowWidth(1024), windowHeight(728), window(nullptr), currentGameState(GameState::PLAY), maxFPS(60.0f)
 {
@@ -179,7 +179,12 @@ void MainGame::DrawGame()
 	color.b = 255;
 	color.a = 255;
 
-	spriteBatch.Draw(pos, uv, texture.id, 0.0f, color);
+	for (int i = 0; i < 1000; ++i)
+	{
+		spriteBatch.Draw(pos, uv, texture.id, 0.0f, color);
+		spriteBatch.Draw(pos + glm::vec4(50, 0, 0, 0), uv, texture.id, 0.0f, color);
+
+	}
 
 	spriteBatch.End();
 

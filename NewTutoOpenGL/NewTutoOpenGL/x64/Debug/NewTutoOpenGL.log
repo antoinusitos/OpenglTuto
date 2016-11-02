@@ -1,6 +1,15 @@
-﻿Build started 02/11/2016 23:30:15.
-     1>Project "D:\dev\git\openglTuto\NewTutoOpenGL\NewTutoOpenGL\NewTutoOpenGL.vcxproj" on node 2 (Build target(s)).
-     1>Link:
+﻿Build started 02/11/2016 23:39:14.
+     1>Project "D:\dev\git\openglTuto\NewTutoOpenGL\NewTutoOpenGL\NewTutoOpenGL.vcxproj" on node 2 (Rebuild target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\x86_amd64\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"x64\Debug\\" /Fd"x64\Debug\vc140.pdb" /Gd /TP /errorReport:prompt main.cpp MainGame.cpp
+         MainGame.cpp
+     1>d:\dev\git\opengltuto\newtutoopengl\newtutoopengl\maingame.cpp(51): warning C4244: 'initializing': conversion from 'Uint32' to 'float', possible loss of data
+     1>d:\dev\git\opengltuto\newtutoopengl\newtutoopengl\maingame.cpp(74): warning C4244: 'argument': conversion from 'float' to 'Uint32', possible loss of data
+     1>d:\dev\git\opengltuto\newtutoopengl\newtutoopengl\maingame.cpp(201): warning C4244: 'initializing': conversion from 'Uint32' to 'float', possible loss of data
+     1>d:\dev\git\opengltuto\newtutoopengl\newtutoopengl\maingame.cpp(204): warning C4244: '=': conversion from 'Uint32' to 'float', possible loss of data
+         main.cpp
+         Generating Code...
+       Link:
          C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"D:\dev\git\openglTuto\NewTutoOpenGL\x64\Debug\NewTutoOpenGL.exe" /INCREMENTAL /NOLOGO SDL2.lib SDL2main.lib opengl32.lib glew32.lib SDL2_image.lib OpenGLEngine.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /Debug /PDB:"D:\dev\git\openglTuto\NewTutoOpenGL\x64\Debug\NewTutoOpenGL.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\dev\git\openglTuto\NewTutoOpenGL\x64\Debug\NewTutoOpenGL.lib" /MACHINE:X64 x64\Debug\main.obj
          x64\Debug\MainGame.obj
      1>MainGame.obj : error LNK2019: unresolved external symbol SDL_PollEvent referenced in function "private: void __cdecl MainGame::ProcessInput(void)" (?ProcessInput@MainGame@@AEAAXXZ)
@@ -51,8 +60,8 @@
      1>D:\dev\git\openglTuto\NewTutoOpenGL\includes\glew-2.0.0\lib\Release\Win32\glew32.lib : warning LNK4272: library machine type 'X86' conflicts with target machine type 'x64'
      1>D:\dev\git\openglTuto\NewTutoOpenGL\includes\SDL2_image-2.0.1\lib\x86\SDL2_image.lib : warning LNK4272: library machine type 'X86' conflicts with target machine type 'x64'
      1>D:\dev\git\openglTuto\NewTutoOpenGL\x64\Debug\NewTutoOpenGL.exe : fatal error LNK1120: 42 unresolved externals
-     1>Done Building Project "D:\dev\git\openglTuto\NewTutoOpenGL\NewTutoOpenGL\NewTutoOpenGL.vcxproj" (Build target(s)) -- FAILED.
+     1>Done Building Project "D:\dev\git\openglTuto\NewTutoOpenGL\NewTutoOpenGL\NewTutoOpenGL.vcxproj" (Rebuild target(s)) -- FAILED.
 
 Build FAILED.
 
-Time Elapsed 00:00:00.44
+Time Elapsed 00:00:01.73

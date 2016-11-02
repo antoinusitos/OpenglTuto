@@ -22,6 +22,11 @@ namespace OpenGLEngine
 	{
 		sortType = theSortType;
 		renderBatches.clear();
+		for (int i = 0; i < glyphs.size(); ++i)
+		{
+			delete glyphs[i];
+		}
+
 		glyphs.clear();
 	}
 

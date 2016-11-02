@@ -1,4 +1,4 @@
-﻿Build started 02/11/2016 23:27:52.
+﻿Build started 02/11/2016 23:39:08.
      1>Project "D:\dev\git\openglTuto\NewTutoOpenGL\OpenGLEngine\OpenGLEngine.vcxproj" on node 2 (Rebuild target(s)).
      1>ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\x86_amd64\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /D _DEBUG /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"x64\Debug\\" /Fd"x64\Debug\OpenGLEngine.pdb" /Gd /TP /errorReport:prompt Camera2D.cpp Errors.cpp GLSLProgram.cpp ImageLoader.cpp IOManager.cpp OpenGLEngine.cpp picoPNG.cpp ResourceManager.cpp Sprite.cpp SpriteBatch.cpp TextureCache.cpp Window.cpp
@@ -41,4 +41,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:05.37
+Time Elapsed 00:00:05.90
