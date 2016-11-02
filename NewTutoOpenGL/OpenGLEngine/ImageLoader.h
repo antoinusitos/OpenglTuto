@@ -8,12 +8,10 @@
 namespace OpenGLEngine
 {
 
-	using namespace std;
-
 	class ImageLoader
 	{
 	public:
-		static GLTexture LoadPNG(string filePath);
+		static GLTexture LoadPNG(std::string filePath);
 	};
 
 }

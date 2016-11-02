@@ -6,15 +6,15 @@
 namespace OpenGLEngine
 {
 
-	GLTexture ImageLoader::LoadPNG(string filePath)
+	GLTexture ImageLoader::LoadPNG(std::string filePath)
 	{
 		// create a gl texture and initialize all its fields to 0
 		GLTexture texture = {};
 
 		// input data to decodePNG, which we load from a file
-		vector<unsigned char> out;
+		std::vector<unsigned char> out;
 		// output data from decodePNG, which is the pixel data four our texture
-		vector<unsigned char> in;
+		std::vector<unsigned char> in;
 
 		unsigned long width;
 		unsigned long height;

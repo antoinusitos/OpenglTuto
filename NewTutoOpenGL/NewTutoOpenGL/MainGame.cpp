@@ -1,5 +1,6 @@
 #include "MainGame.h"
-#include <OpenGLEngine/Errors.h>
+#include <Errors.h>
+#include <ResourceManager.h>
 
 MainGame::MainGame() : time(0.0f), windowWidth(1024), windowHeight(728), window(nullptr), currentGameState(GameState::PLAY), maxFPS(60.0f)
 {
@@ -9,22 +10,12 @@ MainGame::MainGame() : time(0.0f), windowWidth(1024), windowHeight(728), window(
 
 MainGame::~MainGame()
 {
-	for (int i = 0; i < sprites.size(); ++i)
-	{
-		delete sprites[i];
-	}
 	delete colorProgram;
 }
 
 void MainGame::Run()
 {
 	InitSystem();
-
-	sprites.push_back(new OpenGLEngine::Sprite());
-	sprites.back()->Init(0.0f, 0.0f, windowWidth / 2, windowWidth / 2, "Textures/jimmyJump_pack/PNG/CharacterRight_Standing.png");
-
-	sprites.push_back(new OpenGLEngine::Sprite());
-	sprites.back()->Init(windowWidth / 2, 0.0f, windowWidth / 2, windowWidth / 2, "Textures/jimmyJump_pack/PNG/CharacterRight_Standing.png");
 
 	GameLoop();
 }
@@ -38,6 +29,8 @@ void MainGame::InitSystem()
 	window->Create("Game Engine", windowWidth, windowHeight, 0);
 
 	InitShaders();
+
+	spriteBatch.Init();
 }
 
 void MainGame::InitShaders()
@@ -153,8 +146,10 @@ void MainGame::DrawGame()
 		return;
 	}
 
-	// bind the input of the shader
+	// enable the shader
 	colorProgram->Use();
+	
+	// bind the input of the shader
 	glActiveTexture(GL_TEXTURE0);
 	//glBindTexture(GL_TEXTURE_2D, playerTexture.id);
 	GLint textureLocation = colorProgram->GetUniformLocation("mySampler");
@@ -172,11 +167,23 @@ void MainGame::DrawGame()
 	// send a pointer to the first element in the shader
 	glUniformMatrix4fv(pLocation, 1, GL_FALSE, &(cameraMatrix[0][0]));
 
-	// draw the sprites
-	for (int i = 0; i < sprites.size(); ++i)
-	{
-		sprites[i]->Draw();
-	}
+	
+	spriteBatch.Begin();
+
+	glm::vec4 pos(0.0f, 0.0f, 50.0f, 50.0f);
+	glm::vec4 uv(0.0f, 0.0f, 1.0f, 1.0f);
+	OpenGLEngine::GLTexture texture = OpenGLEngine::ResourceManager::GetTexture("Textures/jimmyJump_pack/PNG/CharacterRight_Walk1.png");
+	OpenGLEngine::Color color;
+	color.r = 255;
+	color.g = 255;
+	color.b = 255;
+	color.a = 255;
+
+	spriteBatch.Draw(pos, uv, texture.id, 0.0f, color);
+
+	spriteBatch.End();
+
+	spriteBatch.RenderBatch();
 
 	// unbind the input of the shader
 	glBindTexture(GL_TEXTURE_2D, 0);

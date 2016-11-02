@@ -4,13 +4,14 @@
 #include "SDL.h"
 #include "glew.h"
 
-#include <OpenGLEngine/OpenGLEngine.h>
+#include <OpenGLEngine.h>
 
-#include <OpenGLEngine/GLTexture.h>
-#include <OpenGLEngine/GLSLProgram.h>
-#include <OpenGLEngine/Sprite.h>
-#include <OpenGLEngine/Window.h>
-#include <OpenGLEngine/Camera2D.h>
+#include <GLTexture.h>
+#include <GLSLProgram.h>
+#include <Sprite.h>
+#include <Window.h>
+#include <Camera2D.h>
+#include <SpriteBatch.h>
 
 #include <vector>
 
@@ -44,10 +45,10 @@ private:
 
 	GameState currentGameState;
 
-	vector<OpenGLEngine::Sprite*> sprites;
-
 	OpenGLEngine::GLSLProgram* colorProgram;
 	OpenGLEngine::Camera2D* camera;
+
+	OpenGLEngine::SpriteBatch spriteBatch;
 
 	float fps;
 	float frameTime;

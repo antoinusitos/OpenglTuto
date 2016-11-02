@@ -5,6 +5,7 @@
 #include <glm.hpp>
 #include <vector>
 #include "Vertex.h"
+#include <algorithm>
 
 namespace OpenGLEngine
 {
@@ -29,9 +30,19 @@ namespace OpenGLEngine
 		Vertex bottomRight;
 	};
 
+	// used to load once each texture
 	class RenderBatch
 	{
-
+	public :
+		RenderBatch(GLuint theOffset, GLuint theNumVertices, GLuint theTexture)
+		{
+			offset = theOffset;
+			numVertices = theNumVertices;
+			texture = theTexture;
+		}
+		GLuint offset;
+		GLuint numVertices;
+		GLuint texture;
 	};
 
 	class SpriteBatch
@@ -54,6 +65,7 @@ namespace OpenGLEngine
 		void RenderBatch();
 
 	private:
+		void CreateRenderBatches();
 		void CreateVertexArray();
 
 		void SortGlyphs();
@@ -68,6 +80,8 @@ namespace OpenGLEngine
 		GlyphSortType sortType;
 
 		std::vector<Glyph*> glyphs;
+		
+		std::vector<OpenGLEngine::RenderBatch> renderBatches;
 	};
 }
 
