@@ -12,6 +12,8 @@
 #include <OpenGLEngine/Window.h>
 #include <OpenGLEngine/Camera2D.h>
 #include <OpenGLEngine/SpriteBatch.h>
+#include <OpenGLEngine/InputManager.h>
+#include <OpenGLEngine/Timing.h>
 
 #include <vector>
 
@@ -37,7 +39,6 @@ private:
 	void GameLoop();
 	void ProcessInput();
 	void DrawGame();
-	void CalculateFPS();
 
 	OpenGLEngine::Window* window;
 	int windowWidth;
@@ -50,9 +51,11 @@ private:
 
 	OpenGLEngine::SpriteBatch spriteBatch;
 
-	float fps;
-	float frameTime;
+	OpenGLEngine::InputManager* inputManager;
+	OpenGLEngine::FPSLimiter* fpsLimiter;
+
 	float maxFPS;
+	float fps;
 
 	float time;
 };
