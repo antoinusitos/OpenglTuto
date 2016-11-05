@@ -164,11 +164,6 @@ void MainGame::DrawGame()
 	GLint textureLocation = colorProgram->GetUniformLocation("mySampler");
 	glUniform1i(textureLocation, 0);
 
-	// set the constantly changing time variable
-	GLuint timeLocation = colorProgram->GetUniformLocation("time");
-	// send the time to the graphic card
-	glUniform1f(timeLocation, time);
-
 	// set the camera matrix
 	GLuint pLocation = colorProgram->GetUniformLocation("P");
 	glm::mat4 cameraMatrix = camera->GetCameraMatrix();

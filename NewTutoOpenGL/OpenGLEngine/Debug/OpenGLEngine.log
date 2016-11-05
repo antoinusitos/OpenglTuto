@@ -1,13 +1,9 @@
-﻿Build started 05/11/2016 00:16:44.
+﻿Build started 05/11/2016 17:04:25.
      1>Project "D:\dev\git\openglTuto\NewTutoOpenGL\OpenGLEngine\OpenGLEngine.vcxproj" on node 2 (Build target(s)).
      1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(392,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (NewTutoOpenGL.vcxproj).  This can lead to incorrect clean and rebuild behavior.
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\" /Fd"Debug\OpenGLEngine.pdb" /Gd /TP /analyze- /errorReport:prompt Timing.cpp
-         Timing.cpp
-     1>d:\dev\git\opengltuto\newtutoopengl\openglengine\timing.cpp(37): warning C4244: 'initializing': conversion from 'Uint32' to 'float', possible loss of data
-     1>d:\dev\git\opengltuto\newtutoopengl\openglengine\timing.cpp(41): warning C4244: 'argument': conversion from 'float' to 'Uint32', possible loss of data
-     1>d:\dev\git\opengltuto\newtutoopengl\openglengine\timing.cpp(53): warning C4244: 'initializing': conversion from 'Uint32' to 'float', possible loss of data
-     1>d:\dev\git\opengltuto\newtutoopengl\openglengine\timing.cpp(56): warning C4244: '=': conversion from 'Uint32' to 'float', possible loss of data
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\" /Fd"Debug\OpenGLEngine.pdb" /Gd /TP /analyze- /errorReport:prompt Window.cpp
+         Window.cpp
        Lib:
          C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\Lib.exe /OUT:"D:\dev\git\openglTuto\NewTutoOpenGL\Debug\OpenGLEngine.lib" /NOLOGO Debug\Camera2D.obj
          Debug\Errors.obj
@@ -28,4 +24,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:00.83
+Time Elapsed 00:00:01.02
