@@ -2,6 +2,7 @@
 #define DEF_INPUTMANAGER
 
 #include <unordered_map>
+#include <glm.hpp>
 
 namespace OpenGLEngine
 {
@@ -16,8 +17,13 @@ namespace OpenGLEngine
 
 		bool isKeyPressed(unsigned int keyID);
 
+		void SetMouseCoord(float xPos, float yPos);
+		glm::vec2 GetMouseCoord() const { return mouseCoord; }
+
 	private:
 		std::unordered_map<unsigned int, bool> keyMap;
+
+		glm::vec2 mouseCoord;
 	};
 }
 

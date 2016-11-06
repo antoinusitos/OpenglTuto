@@ -3,7 +3,7 @@
 namespace OpenGLEngine
 {
 
-	InputManager::InputManager()
+	InputManager::InputManager() : mouseCoord(0.0f)
 	{
 	}
 
@@ -33,6 +33,12 @@ namespace OpenGLEngine
 		{
 			return false;
 		}
+	}
+
+	void InputManager::SetMouseCoord(float xPos, float yPos)
+	{
+		mouseCoord.x = xPos;
+		mouseCoord.y = yPos;
 	}
 
 }

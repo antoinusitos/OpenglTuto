@@ -16,6 +16,7 @@ namespace OpenGLEngine
 
 		void Update();
 
+		glm::vec2 ConvertScreenToWorld(glm::vec2 screenPos);
 
 		// setters
 		void SetPosition(const glm::vec2& newPosition) 
