@@ -13,6 +13,8 @@
 #include <OpenGLEngine/Camera2D.h>
 #include <OpenGLEngine/SpriteBatch.h>
 
+#include "Bullet.h"
+
 #include <vector>
 
 enum class GameState
@@ -55,6 +57,8 @@ private:
 	float maxFPS;
 
 	float time;
+
+	std::vector<Bullet> bullets;
 };
 
 #endif

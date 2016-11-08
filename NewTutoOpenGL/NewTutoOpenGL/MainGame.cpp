@@ -55,6 +55,20 @@ void MainGame::GameLoop()
 
 		camera->Update();
 
+		// update all bullets
+		for (int i = 0; i < bullets.size(); )
+		{
+			if (bullets[i].Update())
+			{
+				bullets[i] = bullets.back();
+				bullets.pop_back();
+			}
+			else
+			{
+				++i;
+			}
+		}
+
 		DrawGame();
 		CalculateFPS();
 
@@ -179,11 +193,11 @@ void MainGame::DrawGame()
 	color.b = 255;
 	color.a = 255;
 
-	for (int i = 0; i < 1000; ++i)
-	{
-		spriteBatch.Draw(pos, uv, texture.id, 0.0f, color);
-		spriteBatch.Draw(pos + glm::vec4(50, 0, 0, 0), uv, texture.id, 0.0f, color);
+	spriteBatch.Draw(pos, uv, texture.id, 0.0f, color);
 
+	for (int i = 0; i < bullets.size(); ++i)
+	{
+		bullets[i].Draw(spriteBatch);
 	}
 
 	spriteBatch.End();

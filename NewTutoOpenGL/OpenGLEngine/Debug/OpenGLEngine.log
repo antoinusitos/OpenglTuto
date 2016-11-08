@@ -1,30 +1,20 @@
-﻿Build started 02/11/2016 23:49:14.
-     1>Project "D:\dev\git\openglTuto\NewTutoOpenGL\OpenGLEngine\OpenGLEngine.vcxproj" on node 2 (Build target(s)).
-     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(392,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (NewTutoOpenGL.vcxproj).  This can lead to incorrect clean and rebuild behavior.
-     1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\" /Fd"Debug\OpenGLEngine.pdb" /Gd /TP /analyze- /errorReport:prompt SpriteBatch.cpp TextureCache.cpp
-         TextureCache.cpp
-         SpriteBatch.cpp
-     1>d:\dev\git\opengltuto\newtutoopengl\openglengine\spritebatch.cpp(25): warning C4018: '<': signed/unsigned mismatch
-     1>d:\dev\git\opengltuto\newtutoopengl\openglengine\spritebatch.cpp(68): warning C4018: '<': signed/unsigned mismatch
-     1>d:\dev\git\opengltuto\newtutoopengl\openglengine\spritebatch.cpp(107): warning C4018: '<': signed/unsigned mismatch
-         Generating Code...
-       Lib:
-         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\Lib.exe /OUT:"D:\dev\git\openglTuto\NewTutoOpenGL\Debug\OpenGLEngine.lib" /NOLOGO Debug\Camera2D.obj
-         Debug\Errors.obj
-         Debug\GLSLProgram.obj
-         Debug\ImageLoader.obj
-         Debug\IOManager.obj
-         Debug\OpenGLEngine.obj
-         Debug\picoPNG.obj
-         Debug\ResourceManager.obj
-         Debug\Sprite.obj
-         Debug\SpriteBatch.obj
-         Debug\TextureCache.obj
-         Debug\Window.obj
-         OpenGLEngine.vcxproj -> D:\dev\git\openglTuto\NewTutoOpenGL\Debug\OpenGLEngine.lib
-     1>Done Building Project "D:\dev\git\openglTuto\NewTutoOpenGL\OpenGLEngine\OpenGLEngine.vcxproj" (Build target(s)).
-
-Build succeeded.
-
-Time Elapsed 00:00:01.47
+﻿C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(392,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (NewTutoOpenGL.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  Window.cpp
+  TextureCache.cpp
+  SpriteBatch.cpp
+d:\dev\git\opengltuto\newtutoopengl\openglengine\spritebatch.cpp(25): warning C4018: '<': signed/unsigned mismatch
+d:\dev\git\opengltuto\newtutoopengl\openglengine\spritebatch.cpp(68): warning C4018: '<': signed/unsigned mismatch
+d:\dev\git\opengltuto\newtutoopengl\openglengine\spritebatch.cpp(107): warning C4018: '<': signed/unsigned mismatch
+  Sprite.cpp
+  ResourceManager.cpp
+  picoPNG.cpp
+  OpenGLEngine.cpp
+  IOManager.cpp
+d:\dev\git\opengltuto\newtutoopengl\openglengine\iomanager.cpp(20): warning C4244: 'initializing': conversion from 'std::streamoff' to 'int', possible loss of data
+d:\dev\git\opengltuto\newtutoopengl\openglengine\iomanager.cpp(25): warning C4244: '-=': conversion from 'std::streamoff' to 'int', possible loss of data
+  ImageLoader.cpp
+  GLSLProgram.cpp
+  Errors.cpp
+  Camera2D.cpp
+  Generating Code...
+  OpenGLEngine.vcxproj -> D:\Dev\git\openGLTuto\NewTutoOpenGL\Debug\OpenGLEngine.lib
