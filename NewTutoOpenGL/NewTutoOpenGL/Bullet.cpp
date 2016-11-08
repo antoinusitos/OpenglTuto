@@ -1,22 +1,18 @@
 #include "Bullet.h"
-#include <ResourceManager.h>
+#include <OpenGLEngine/ResourceManager.h>
 
 
-Bullet::Bullet()
-{
-}
-
-
-Bullet::~Bullet()
-{
-}
-
-void Bullet::Init(glm::vec2 pos, glm::vec2 dir, float s, int theLifeTime)
+Bullet::Bullet(glm::vec2 pos, glm::vec2 dir, float s, int theLifeTime)
 {
 	position = pos;
 	direction = dir;
 	speed = s;
 	lifeTime = theLifeTime;
+}
+
+
+Bullet::~Bullet()
+{
 }
 
 void Bullet::Draw(OpenGLEngine::SpriteBatch& spriteBatch)

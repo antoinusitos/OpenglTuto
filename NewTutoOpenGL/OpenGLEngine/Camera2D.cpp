@@ -43,6 +43,8 @@ namespace OpenGLEngine
 	}
 	glm::vec2 Camera2D::ConvertScreenToWorld(glm::vec2 screenPos)
 	{
+		// invert y direction
+		screenPos.y = screenHeight - screenPos.y;
 		// make it so that the 0 is at the center
 		screenPos -= glm::vec2(screenWidth / 2, screenHeight / 2);
 		// scale the coordinates

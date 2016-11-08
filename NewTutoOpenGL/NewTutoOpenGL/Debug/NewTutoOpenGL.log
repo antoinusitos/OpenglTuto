@@ -1,9 +1,6 @@
 ﻿  MainGame.cpp
-d:\dev\git\opengltuto\newtutoopengl\newtutoopengl\maingame.cpp(51): warning C4244: 'initializing': conversion from 'Uint32' to 'float', possible loss of data
-d:\dev\git\opengltuto\newtutoopengl\newtutoopengl\maingame.cpp(74): warning C4244: 'argument': conversion from 'float' to 'Uint32', possible loss of data
-d:\dev\git\opengltuto\newtutoopengl\newtutoopengl\maingame.cpp(206): warning C4244: 'initializing': conversion from 'Uint32' to 'float', possible loss of data
-d:\dev\git\opengltuto\newtutoopengl\newtutoopengl\maingame.cpp(209): warning C4244: '=': conversion from 'Uint32' to 'float', possible loss of data
-  main.cpp
-  Generating Code...
+d:\dev\git\opengltuto\newtutoopengl\newtutoopengl\maingame.cpp(64): warning C4018: '<': signed/unsigned mismatch
+d:\dev\git\opengltuto\newtutoopengl\newtutoopengl\maingame.cpp(108): warning C4244: 'argument': conversion from 'Sint32' to 'float', possible loss of data
+d:\dev\git\opengltuto\newtutoopengl\newtutoopengl\maingame.cpp(222): warning C4018: '<': signed/unsigned mismatch
   NewTutoOpenGL.vcxproj -> D:\Dev\git\openGLTuto\NewTutoOpenGL\Debug\NewTutoOpenGL.exe
   NewTutoOpenGL.vcxproj -> D:\Dev\git\openGLTuto\NewTutoOpenGL\Debug\NewTutoOpenGL.pdb (Full PDB)

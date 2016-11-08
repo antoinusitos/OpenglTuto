@@ -167,7 +167,12 @@ void MainGame::ProcessInput()
 	{
 		glm::vec2 mouseCoord = inputManager->GetMouseCoord();
 		mouseCoord = camera->ConvertScreenToWorld(mouseCoord);
-		std::cout << mouseCoord.x << " " << mouseCoord.y << endl;
+
+		glm::vec2 playerPosition(0.0f);
+		glm::vec2 direction = mouseCoord - playerPosition;
+		direction = glm::normalize(direction);
+
+		bullets.emplace_back(playerPosition, direction, 5.0f, 1000);
 	}
 }
 

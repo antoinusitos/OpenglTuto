@@ -2,15 +2,14 @@
 #define DEF_BULLET
 
 #include <glm.hpp>
-#include <SpriteBatch.h>
+#include <OpenGLEngine/SpriteBatch.h>
 
 class Bullet
 {
 public:
-	Bullet();
+	Bullet(glm::vec2 pos, glm::vec2 dir, float s, int theLifeTime);
 	~Bullet();
 
-	void Init(glm::vec2 pos, glm::vec2 dir, float s, int theLifeTime);
 	void Draw(OpenGLEngine::SpriteBatch& spriteBatch);
 	
 	// return true when this must be destroyed
