@@ -11,6 +11,8 @@ MainGame::MainGame() : time(0.0f), windowWidth(1024), windowHeight(728), window(
 MainGame::~MainGame()
 {
 	delete colorProgram;
+	delete inputManager;
+	delete fpsLimiter;
 }
 
 void MainGame::Run()
@@ -31,6 +33,10 @@ void MainGame::InitSystem()
 	InitShaders();
 
 	spriteBatch.Init();
+
+	inputManager = new OpenGLEngine::InputManager();
+	fpsLimiter = new OpenGLEngine::FPSLimiter();
+	fpsLimiter->Init(maxFPS);
 }
 
 void MainGame::InitShaders()
@@ -47,8 +53,7 @@ void MainGame::GameLoop()
 {
 	while (currentGameState != GameState::EXIT)
 	{
-		// usde for frame time mesuring
-		float startTicks = SDL_GetTicks();
+		fpsLimiter->Begin();
 
 		ProcessInput();
 		time += 0.01f;
@@ -70,22 +75,16 @@ void MainGame::GameLoop()
 		}
 
 		DrawGame();
-		CalculateFPS();
+
+		fps = fpsLimiter->End();
 
 		// print only every 10 frames
 		static int frameCounter = 0;
 		frameCounter++;
-		if (frameCounter == 10)
+		if (frameCounter == 10000)
 		{
 			cout << fps << endl;
 			frameCounter = 0;
-		}
-
-		float frameTicks = SDL_GetTicks() - startTicks;
-		// limit the fps to the max fps
-		if (1000.0f / maxFPS > frameTicks)
-		{
-			SDL_Delay(1000.0f / maxFPS - frameTicks);
 		}
 	}
 }
@@ -94,7 +93,7 @@ void MainGame::ProcessInput()
 {
 	SDL_Event theEvent;
 
-	const float CAMERA_SPEED = 20.0f;
+	const float CAMERA_SPEED = 2.0f;
 	const float SCALE_SPEED = 0.1f;
 
 	while (SDL_PollEvent(&theEvent))
@@ -106,44 +105,69 @@ void MainGame::ProcessInput()
 			break;
 
 		case SDL_MOUSEMOTION:
-			//cout << theEvent.motion.x << " " << theEvent.motion.y << endl;
+			inputManager->SetMouseCoord(theEvent.motion.x, theEvent.motion.y);
 			break;
 
 		case SDL_KEYDOWN:
-			switch (theEvent.key.keysym.sym)
-			{
-
-			case SDLK_ESCAPE:
-				currentGameState = GameState::EXIT;
-				break;
-
-			case SDLK_z:
-				camera->SetPosition(camera->GetPosition() + glm::vec2(0.0f, CAMERA_SPEED));
-				break;
-
-			case SDLK_s:
-				camera->SetPosition(camera->GetPosition() + glm::vec2(0.0f, -CAMERA_SPEED));
-				break;
-
-			case SDLK_q:
-				camera->SetPosition(camera->GetPosition() + glm::vec2(-CAMERA_SPEED, 0.0f));
-				break;
-
-			case SDLK_d:
-				camera->SetPosition(camera->GetPosition() + glm::vec2(CAMERA_SPEED, 0.0f));
-				break;
-
-			case SDLK_a:
-				camera->SetScale(camera->GetScale() + SCALE_SPEED);
-				break;
-
-			case SDLK_e:
-				camera->SetScale(camera->GetScale() - SCALE_SPEED);
-				break;
-			}
+			inputManager->PressKey(theEvent.key.keysym.sym);
 			break;
+
+		case SDL_KEYUP:
+			inputManager->ReleasedKey(theEvent.key.keysym.sym);
+			break;
+
+		case SDL_MOUSEBUTTONDOWN:
+			inputManager->PressKey(theEvent.button.button);
+			break;
+
+		case SDL_MOUSEBUTTONUP:
+			inputManager->ReleasedKey(theEvent.button.button);
+			break;
+
 		}
 		
+	}
+
+	if (inputManager->isKeyPressed(SDLK_ESCAPE))
+	{
+		currentGameState = GameState::EXIT;
+	}
+
+	if (inputManager->isKeyPressed(SDLK_z))
+	{
+		camera->SetPosition(camera->GetPosition() + glm::vec2(0.0f, CAMERA_SPEED));
+	}
+
+	if (inputManager->isKeyPressed(SDLK_s))
+	{
+		camera->SetPosition(camera->GetPosition() + glm::vec2(0.0f, -CAMERA_SPEED));
+	}
+
+	if (inputManager->isKeyPressed(SDLK_q))
+	{
+		camera->SetPosition(camera->GetPosition() + glm::vec2(-CAMERA_SPEED, 0.0f));
+	}
+
+	if (inputManager->isKeyPressed(SDLK_d))
+	{
+		camera->SetPosition(camera->GetPosition() + glm::vec2(CAMERA_SPEED, 0.0f));
+	}
+
+	if (inputManager->isKeyPressed(SDLK_a))
+	{
+		camera->SetScale(camera->GetScale() + SCALE_SPEED);
+	}
+
+	if (inputManager->isKeyPressed(SDLK_e))
+	{
+		camera->SetScale(camera->GetScale() - SCALE_SPEED);
+	}
+
+	if (inputManager->isKeyPressed(SDL_BUTTON_LEFT))
+	{
+		glm::vec2 mouseCoord = inputManager->GetMouseCoord();
+		mouseCoord = camera->ConvertScreenToWorld(mouseCoord);
+		std::cout << mouseCoord.x << " " << mouseCoord.y << endl;
 	}
 }
 
@@ -168,11 +192,6 @@ void MainGame::DrawGame()
 	//glBindTexture(GL_TEXTURE_2D, playerTexture.id);
 	GLint textureLocation = colorProgram->GetUniformLocation("mySampler");
 	glUniform1i(textureLocation, 0);
-
-	// set the constantly changing time variable
-	GLuint timeLocation = colorProgram->GetUniformLocation("time");
-	// send the time to the graphic card
-	glUniform1f(timeLocation, time);
 
 	// set the camera matrix
 	GLuint pLocation = colorProgram->GetUniformLocation("P");
@@ -209,51 +228,4 @@ void MainGame::DrawGame()
 	colorProgram->Unuse();
 
 	window->SwapBuffer();
-}
-
-void MainGame::CalculateFPS()
-{
-	static const int NUM_SAMPLE = 10;
-	static float frameTimes[NUM_SAMPLE];
-	static int currentFrame = 0;
-
-	static float prevTicks = SDL_GetTicks();
-
-	float currentTicks;
-	currentTicks = SDL_GetTicks();
-
-	frameTime = currentTicks - prevTicks;
-	frameTimes[currentFrame % NUM_SAMPLE] = frameTime;
-
-	prevTicks = currentTicks;
-
-	int count;
-
-	currentFrame++;
-	if (currentFrame < NUM_SAMPLE)
-	{
-		count = currentFrame;
-	}
-	else
-	{
-		count = NUM_SAMPLE;
-	}
-
-	float frameTimeAverage = 0;
-	for (int i = 0; i < count; ++i)
-	{
-		frameTimeAverage += frameTimes[i];
-	}
-
-	frameTimeAverage /= count;
-
-	if (frameTimeAverage > 0)
-	{
-		// 1 s / time since last frame
-		fps = 1000.0f / frameTimeAverage;
-	}
-	else
-	{
-		fps = 60.0f;
-	}
 }

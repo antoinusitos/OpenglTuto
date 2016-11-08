@@ -8,7 +8,6 @@ namespace OpenGLEngine
 	{
 	}
 
-
 	SpriteBatch::~SpriteBatch()
 	{
 	}
