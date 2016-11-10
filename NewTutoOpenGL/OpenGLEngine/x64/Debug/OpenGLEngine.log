@@ -1,0 +1,52 @@
+﻿Build started 10/11/2016 19:50:28.
+     1>Project "D:\dev\git\openglTuto\NewTutoOpenGL\OpenGLEngine\OpenGLEngine.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\x86_amd64\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /D _DEBUG /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"x64\Debug\\" /Fd"x64\Debug\OpenGLEngine.pdb" /Gd /TP /errorReport:prompt Camera2D.cpp Errors.cpp GLSLProgram.cpp ImageLoader.cpp InputManager.cpp IOManager.cpp OpenGLEngine.cpp picoPNG.cpp ResourceManager.cpp Sprite.cpp SpriteBatch.cpp TextureCache.cpp Timing.cpp Window.cpp
+         Window.cpp
+         Timing.cpp
+     1>d:\dev\git\opengltuto\newtutoopengl\openglengine\timing.cpp(37): warning C4244: 'initializing': conversion from 'Uint32' to 'float', possible loss of data
+     1>d:\dev\git\opengltuto\newtutoopengl\openglengine\timing.cpp(41): warning C4244: 'argument': conversion from 'float' to 'Uint32', possible loss of data
+     1>d:\dev\git\opengltuto\newtutoopengl\openglengine\timing.cpp(53): warning C4244: 'initializing': conversion from 'Uint32' to 'float', possible loss of data
+     1>d:\dev\git\opengltuto\newtutoopengl\openglengine\timing.cpp(56): warning C4244: '=': conversion from 'Uint32' to 'float', possible loss of data
+         TextureCache.cpp
+         SpriteBatch.cpp
+         Sprite.cpp
+         ResourceManager.cpp
+         picoPNG.cpp
+         OpenGLEngine.cpp
+         IOManager.cpp
+     1>d:\dev\git\opengltuto\newtutoopengl\openglengine\iomanager.cpp(20): warning C4244: 'initializing': conversion from 'std::streamoff' to 'int', possible loss of data
+     1>d:\dev\git\opengltuto\newtutoopengl\openglengine\iomanager.cpp(25): warning C4244: '-=': conversion from 'std::streamoff' to 'int', possible loss of data
+         InputManager.cpp
+         ImageLoader.cpp
+         GLSLProgram.cpp
+         Errors.cpp
+         Camera2D.cpp
+         Generating Code...
+       Lib:
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\x86_amd64\Lib.exe /OUT:"D:\dev\git\openglTuto\NewTutoOpenGL\x64\Debug\OpenGLEngine.lib" SDL2.lib SDL2main.lib opengl32.lib glew32.lib SDL2_image.lib /NOLOGO /MACHINE:X64 x64\Debug\Camera2D.obj
+         x64\Debug\Errors.obj
+         x64\Debug\GLSLProgram.obj
+         x64\Debug\ImageLoader.obj
+         x64\Debug\InputManager.obj
+         x64\Debug\IOManager.obj
+         x64\Debug\OpenGLEngine.obj
+         x64\Debug\picoPNG.obj
+         x64\Debug\ResourceManager.obj
+         x64\Debug\Sprite.obj
+         x64\Debug\SpriteBatch.obj
+         x64\Debug\TextureCache.obj
+         x64\Debug\Timing.obj
+         x64\Debug\Window.obj
+     1>opengl32.lib(OPENGL32.dll) : warning LNK4006: __NULL_IMPORT_DESCRIPTOR already defined in SDL2.lib(SDL2.dll); second definition ignored
+     1>opengl32.lib(OPENGL32.dll) : warning LNK4221: This object file does not define any previously undefined public symbols, so it will not be used by any link operation that consumes this library
+     1>glew32.lib(glew32.dll) : warning LNK4006: __NULL_IMPORT_DESCRIPTOR already defined in SDL2.lib(SDL2.dll); second definition ignored
+     1>glew32.lib(glew32.dll) : warning LNK4221: This object file does not define any previously undefined public symbols, so it will not be used by any link operation that consumes this library
+     1>SDL2_image.lib(SDL2_image.dll) : warning LNK4006: __NULL_IMPORT_DESCRIPTOR already defined in SDL2.lib(SDL2.dll); second definition ignored
+     1>SDL2_image.lib(SDL2_image.dll) : warning LNK4221: This object file does not define any previously undefined public symbols, so it will not be used by any link operation that consumes this library
+         OpenGLEngine.vcxproj -> D:\dev\git\openglTuto\NewTutoOpenGL\x64\Debug\OpenGLEngine.lib
+     1>Done Building Project "D:\dev\git\openglTuto\NewTutoOpenGL\OpenGLEngine\OpenGLEngine.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:06.77

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "NewTutoOpenGL", "NewTutoOpenGL\NewTutoOpenGL.vcxproj", "{ECC20D6D-129F-428E-8521-3EA660AAD41B}"
 	ProjectSection(ProjectDependencies) = postProject
@@ -9,6 +9,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "NewTutoOpenGL", "NewTutoOpe
 	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "OpenGLEngine", "OpenGLEngine\OpenGLEngine.vcxproj", "{AEDDCFC0-3F25-4AD9-94B9-6174D2FDEA8F}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ZombieGame", "ZombieGame\ZombieGame.vcxproj", "{ADB4B89F-38E1-4A27-A3E4-5E3C70C809C0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -34,6 +36,14 @@ Global
 		{AEDDCFC0-3F25-4AD9-94B9-6174D2FDEA8F}.Release|x64.Build.0 = Release|x64
 		{AEDDCFC0-3F25-4AD9-94B9-6174D2FDEA8F}.Release|x86.ActiveCfg = Release|Win32
 		{AEDDCFC0-3F25-4AD9-94B9-6174D2FDEA8F}.Release|x86.Build.0 = Release|Win32
+		{ADB4B89F-38E1-4A27-A3E4-5E3C70C809C0}.Debug|x64.ActiveCfg = Debug|x64
+		{ADB4B89F-38E1-4A27-A3E4-5E3C70C809C0}.Debug|x64.Build.0 = Debug|x64
+		{ADB4B89F-38E1-4A27-A3E4-5E3C70C809C0}.Debug|x86.ActiveCfg = Debug|Win32
+		{ADB4B89F-38E1-4A27-A3E4-5E3C70C809C0}.Debug|x86.Build.0 = Debug|Win32
+		{ADB4B89F-38E1-4A27-A3E4-5E3C70C809C0}.Release|x64.ActiveCfg = Release|x64
+		{ADB4B89F-38E1-4A27-A3E4-5E3C70C809C0}.Release|x64.Build.0 = Release|x64
+		{ADB4B89F-38E1-4A27-A3E4-5E3C70C809C0}.Release|x86.ActiveCfg = Release|Win32
+		{ADB4B89F-38E1-4A27-A3E4-5E3C70C809C0}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

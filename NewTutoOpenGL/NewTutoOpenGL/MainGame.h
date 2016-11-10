@@ -37,9 +37,17 @@ public:
 
 private:
 	void InitSystem();
+
+	// Initializes the shaders
 	void InitShaders();
+
+	// Main game loop for the program
 	void GameLoop();
+
+	// Handles input processing
 	void ProcessInput();
+
+	// renders the game
 	void DrawGame();
 
 	OpenGLEngine::Window* window;

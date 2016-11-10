@@ -1,3 +1,50 @@
-﻿C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(392,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (NewTutoOpenGL.vcxproj).  This can lead to incorrect clean and rebuild behavior.
-  Camera2D.cpp
-  OpenGLEngine.vcxproj -> D:\Dev\git\openGLTuto\NewTutoOpenGL\Debug\OpenGLEngine.lib
+﻿Build started 10/11/2016 19:46:01.
+     1>Project "D:\dev\git\openglTuto\NewTutoOpenGL\OpenGLEngine\OpenGLEngine.vcxproj" on node 2 (Rebuild target(s)).
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(392,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (NewTutoOpenGL.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\" /Fd"Debug\OpenGLEngine.pdb" /Gd /TP /analyze- /errorReport:prompt Camera2D.cpp Errors.cpp GLSLProgram.cpp ImageLoader.cpp InputManager.cpp IOManager.cpp OpenGLEngine.cpp picoPNG.cpp ResourceManager.cpp Sprite.cpp SpriteBatch.cpp TextureCache.cpp Timing.cpp Window.cpp
+         Window.cpp
+         Timing.cpp
+     1>d:\dev\git\opengltuto\newtutoopengl\openglengine\timing.cpp(37): warning C4244: 'initializing': conversion from 'Uint32' to 'float', possible loss of data
+     1>d:\dev\git\opengltuto\newtutoopengl\openglengine\timing.cpp(41): warning C4244: 'argument': conversion from 'float' to 'Uint32', possible loss of data
+     1>d:\dev\git\opengltuto\newtutoopengl\openglengine\timing.cpp(53): warning C4244: 'initializing': conversion from 'Uint32' to 'float', possible loss of data
+     1>d:\dev\git\opengltuto\newtutoopengl\openglengine\timing.cpp(56): warning C4244: '=': conversion from 'Uint32' to 'float', possible loss of data
+         TextureCache.cpp
+         SpriteBatch.cpp
+     1>d:\dev\git\opengltuto\newtutoopengl\openglengine\spritebatch.cpp(24): warning C4018: '<': signed/unsigned mismatch
+     1>d:\dev\git\opengltuto\newtutoopengl\openglengine\spritebatch.cpp(67): warning C4018: '<': signed/unsigned mismatch
+     1>d:\dev\git\opengltuto\newtutoopengl\openglengine\spritebatch.cpp(106): warning C4018: '<': signed/unsigned mismatch
+         Sprite.cpp
+         ResourceManager.cpp
+         picoPNG.cpp
+         OpenGLEngine.cpp
+         IOManager.cpp
+     1>d:\dev\git\opengltuto\newtutoopengl\openglengine\iomanager.cpp(20): warning C4244: 'initializing': conversion from 'std::streamoff' to 'int', possible loss of data
+     1>d:\dev\git\opengltuto\newtutoopengl\openglengine\iomanager.cpp(25): warning C4244: '-=': conversion from 'std::streamoff' to 'int', possible loss of data
+         InputManager.cpp
+         ImageLoader.cpp
+         GLSLProgram.cpp
+         Errors.cpp
+         Camera2D.cpp
+         Generating Code...
+       Lib:
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\Lib.exe /OUT:"D:\dev\git\openglTuto\NewTutoOpenGL\Debug\OpenGLEngine.lib" /NOLOGO Debug\Camera2D.obj
+         Debug\Errors.obj
+         Debug\GLSLProgram.obj
+         Debug\ImageLoader.obj
+         Debug\InputManager.obj
+         Debug\IOManager.obj
+         Debug\OpenGLEngine.obj
+         Debug\picoPNG.obj
+         Debug\ResourceManager.obj
+         Debug\Sprite.obj
+         Debug\SpriteBatch.obj
+         Debug\TextureCache.obj
+         Debug\Timing.obj
+         Debug\Window.obj
+         OpenGLEngine.vcxproj -> D:\dev\git\openglTuto\NewTutoOpenGL\Debug\OpenGLEngine.lib
+     1>Done Building Project "D:\dev\git\openglTuto\NewTutoOpenGL\OpenGLEngine\OpenGLEngine.vcxproj" (Rebuild target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:05.55

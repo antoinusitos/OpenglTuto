@@ -2,7 +2,7 @@
 #include <OpenGLEngine/Errors.h>
 #include <OpenGLEngine/ResourceManager.h>
 
-MainGame::MainGame() : time(0.0f), windowWidth(1024), windowHeight(728), window(nullptr), currentGameState(GameState::PLAY), maxFPS(60.0f)
+MainGame::MainGame() : window(nullptr), windowWidth(1024), windowHeight(728), currentGameState(GameState::PLAY), maxFPS(60.0f), time(0.0f)
 {
 	camera = new OpenGLEngine::Camera2D();
 	camera->Init(windowWidth, windowHeight);
