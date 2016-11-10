@@ -63,6 +63,9 @@ private:
 	// Main Camera
 	OpenGLEngine::Camera2D* _camera;
 
+	// The Sprite Batch used to render
+	OpenGLEngine::SpriteBatch _spriteBatch;
+
 	// Handles the Input
 	OpenGLEngine::InputManager* _inputManager;
 };

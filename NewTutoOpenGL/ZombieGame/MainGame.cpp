@@ -4,7 +4,8 @@
 
 MainGame::MainGame() : _window(nullptr), _windowWidth(1024), _windowHeight(728), _currentGameState(GameState::PLAY)
 {
-
+	_camera = new OpenGLEngine::Camera2D();
+	_camera->Init(_windowWidth, _windowHeight);
 }
 
 MainGame::~MainGame()
@@ -15,12 +16,24 @@ MainGame::~MainGame()
 
 void MainGame::Run()
 {
-	
+	InitSystem();
+
+	GameLoop();
 }
 
 void MainGame::InitSystem()
 {
+	OpenGLEngine::Init();
 
+	_window = new OpenGLEngine::Window();
+
+	_window->Create("Game Engine", _windowWidth, _windowHeight, 0);
+
+	InitShaders();
+
+	_spriteBatch.Init();
+
+	_inputManager = new OpenGLEngine::InputManager();
 }
 
 void MainGame::InitShaders()
@@ -37,7 +50,9 @@ void MainGame::GameLoop()
 {
 	while (_currentGameState != GameState::EXIT)
 	{
-		
+		ProcessInput();
+		_camera->Update();
+		DrawGame();
 	}
 }
 
