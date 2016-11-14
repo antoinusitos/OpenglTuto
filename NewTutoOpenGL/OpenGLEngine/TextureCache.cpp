@@ -30,8 +30,6 @@ namespace OpenGLEngine
 			// insert it into the map
 			textureMap.insert(make_pair(path, newTexture));
 
-			cout << "loaded texture ! \n";
-
 			return newTexture;
 		}
 

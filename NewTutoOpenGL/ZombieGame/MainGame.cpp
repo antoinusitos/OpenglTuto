@@ -1,8 +1,11 @@
 #include "MainGame.h"
 #include <OpenGLEngine/Errors.h>
+#include <OpenGLEngine/OpenGLEngine.h>
 #include <OpenGLEngine/ResourceManager.h>
+#include <iostream>
+#include <OpenGLEngine/Timing.h>
 
-MainGame::MainGame() : _window(nullptr), _windowWidth(1024), _windowHeight(728), _currentGameState(GameState::PLAY)
+MainGame::MainGame() : _window(nullptr), _windowWidth(1024), _windowHeight(768), _currentGameState(GameState::PLAY), _fps(0), _player(nullptr)
 {
 	_camera = new OpenGLEngine::Camera2D();
 	_camera->Init(_windowWidth, _windowHeight);
@@ -12,12 +15,18 @@ MainGame::~MainGame()
 {
 	delete _textureProgram;
 	delete _inputManager;
+	delete _camera;
+
+	for (int i = 0; i < _levels.size(); ++i)
+	{
+		delete _levels[i];
+	}
 }
 
 void MainGame::Run()
 {
 	InitSystem();
-
+	InitLevel();
 	GameLoop();
 }
 
@@ -28,12 +37,36 @@ void MainGame::InitSystem()
 	_window = new OpenGLEngine::Window();
 
 	_window->Create("Game Engine", _windowWidth, _windowHeight, 0);
+	glClearColor(0.7f, 0.7f, 0.7f, 1.0f);
 
 	InitShaders();
 
-	_spriteBatch.Init();
+	_agentSpriteBatch.Init();
 
+	_camera->Init(_windowWidth, _windowHeight);
 	_inputManager = new OpenGLEngine::InputManager();
+
+}
+
+void MainGame::InitLevel()
+{
+	// Level 1
+	_levels.push_back(new Level("Levels/Level1.txt"));
+	_currentLevel = 0;
+
+	_player = new Player();
+	_player->Init(4.0f, _levels[_currentLevel]->GetStartPlayerPos(), _inputManager);
+
+	_humans.push_back(_player);
+}
+
+void MainGame::UpdateAgents()
+{
+	// Update all humans
+	for (int i = 0; i < _humans.size(); ++i)
+	{
+		_humans[i]->Update();
+	}
 }
 
 void MainGame::InitShaders()
@@ -48,11 +81,24 @@ void MainGame::InitShaders()
 
 void MainGame::GameLoop()
 {
+	OpenGLEngine::FPSLimiter fpsLimiter;
+	fpsLimiter.SetMaxFPS(60.0f);
+
 	while (_currentGameState != GameState::EXIT)
 	{
+		fpsLimiter.Begin();
+
 		ProcessInput();
+		
+		UpdateAgents();
+
+		_camera->SetPosition(_player->GetPosition());
+
 		_camera->Update();
+
 		DrawGame();
+
+		fpsLimiter.End();
 	}
 }
 
@@ -105,8 +151,36 @@ void MainGame::DrawGame()
 	// Clear the color and depth buffer
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-	// Drawn code goes here
+	_textureProgram->Use();
 
+	// Drawn code goes here
+	glActiveTexture(GL_TEXTURE0);
+
+	//Make sure the shader uses texture 0
+	GLint textureUniform = _textureProgram->GetUniformLocation("mySampler");
+	glUniform1i(textureUniform, 0);
+
+	// Grab the camera matrix
+	glm::mat4 projectionMatrix = _camera->GetCameraMatrix();
+	GLint PUniform = _textureProgram->GetUniformLocation("P");
+	glUniformMatrix4fv(PUniform, 1, GL_FALSE, &projectionMatrix[0][0]);
+
+	// Draw the level
+	_levels[_currentLevel]->Draw();
+
+	_agentSpriteBatch.Begin();
+
+	// Draw the humans
+	for (int i = 0; i < _humans.size(); ++i)
+	{
+		_humans[i]->Draw(_agentSpriteBatch);
+	}
+
+	_agentSpriteBatch.End();
+
+	_agentSpriteBatch.RenderBatch();
+
+	_textureProgram->Unuse();
 	
 	// Swap our buffer and draw everything to the screen
 	_window->SwapBuffer();
