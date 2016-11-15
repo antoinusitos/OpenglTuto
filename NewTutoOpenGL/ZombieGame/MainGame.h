@@ -26,6 +26,8 @@ enum class GameState
 	EXIT,
 };
 
+class Zombie;
+
 using namespace std;
 
 class MainGame
@@ -89,6 +91,7 @@ private:
 
 	Player* _player;
 	std::vector<Human*> _humans;
+	std::vector<Zombie*> _zombies;
 };
 
 #endif

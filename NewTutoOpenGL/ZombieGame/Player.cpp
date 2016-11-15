@@ -22,7 +22,9 @@ void Player::Init(float speed, glm::vec2 pos, OpenGLEngine::InputManager* inputM
 	_inputManager = inputManager;
 }
 
-void Player::Update()
+void Player::Update(const std::vector<std::string>& levelData,
+	std::vector<Human*>& humans,
+	std::vector<Zombie*>& Zombies)
 {
 	if(_inputManager->isKeyPressed(SDLK_d))
 	{
@@ -41,4 +43,6 @@ void Player::Update()
 	{
 		_position.y += _speed;
 	}
+
+	CollideWithLevel(levelData);
 }

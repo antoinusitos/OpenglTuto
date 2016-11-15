@@ -4,6 +4,7 @@
 #include <OpenGLEngine/ResourceManager.h>
 #include <iostream>
 #include <OpenGLEngine/Timing.h>
+#include "Zombie.h"
 
 MainGame::MainGame() : _window(nullptr), _windowWidth(1024), _windowHeight(768), _currentGameState(GameState::PLAY), _fps(0), _player(nullptr)
 {
@@ -65,7 +66,7 @@ void MainGame::UpdateAgents()
 	// Update all humans
 	for (int i = 0; i < _humans.size(); ++i)
 	{
-		_humans[i]->Update();
+		_humans[i]->Update(_levels[_currentLevel]->GetLevelData(), _humans, _zombies);
 	}
 }
 
