@@ -5,6 +5,8 @@
 #include <iostream>
 #include <OpenGLEngine/Timing.h>
 #include "Zombie.h"
+#include <random>
+#include <ctime>
 
 MainGame::MainGame() : _window(nullptr), _windowWidth(1024), _windowHeight(768), _currentGameState(GameState::PLAY), _fps(0), _player(nullptr)
 {
@@ -59,6 +61,22 @@ void MainGame::InitLevel()
 	_player->Init(4.0f, _levels[_currentLevel]->GetStartPlayerPos(), _inputManager);
 
 	_humans.push_back(_player);
+
+	std::mt19937 randomEngine;
+	randomEngine.seed(time(nullptr));
+	std::uniform_int_distribution<int> randX(2, _levels[_currentLevel]->GetWidth() - 2);
+	std::uniform_int_distribution<int> randY(2, _levels[_currentLevel]->GetHeight() - 2);
+
+	const float HUMAN_SPEED = 1.0f;
+
+	// Add all random humans
+	for (int i = 0; i < _levels[_currentLevel]->GetNumHumans(); ++i)
+	{
+		_humans.push_back(new Human);
+
+		glm::vec2 pos(randX(randomEngine) * TILE_WIDTH, randY(randomEngine) * TILE_WIDTH);
+		_humans.back()->Init(HUMAN_SPEED, pos);
+	}
 }
 
 void MainGame::UpdateAgents()
@@ -67,6 +85,15 @@ void MainGame::UpdateAgents()
 	for (int i = 0; i < _humans.size(); ++i)
 	{
 		_humans[i]->Update(_levels[_currentLevel]->GetLevelData(), _humans, _zombies);
+	}
+
+	// Update collisions
+	for (int i = 0; i < _humans.size(); ++i)
+	{
+		for (int j = i + 1; j < _humans.size(); ++j)
+		{
+			_humans[i]->CollideWithAgent(_humans[j]);
+		}
 	}
 }
 
