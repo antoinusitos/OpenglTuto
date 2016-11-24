@@ -1,26 +1,30 @@
-﻿Build started 21/11/2016 19:39:22.
+﻿Build started 24/11/2016 20:43:35.
      1>Project "D:\dev\git\openglTuto\NewTutoOpenGL\ZombieGame\ZombieGame.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\" /Fd"Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:prompt MainGame.cpp Zombie.cpp
-         Zombie.cpp
-     1>d:\dev\git\opengltuto\newtutoopengl\zombiegame\zombie.cpp(48): warning C4018: '<': signed/unsigned mismatch
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\" /Fd"Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:prompt MainGame.cpp
          MainGame.cpp
-     1>d:\dev\git\opengltuto\newtutoopengl\zombiegame\maingame.cpp(27): warning C4018: '<': signed/unsigned mismatch
-     1>d:\dev\git\opengltuto\newtutoopengl\zombiegame\maingame.cpp(70): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-     1>d:\dev\git\opengltuto\newtutoopengl\zombiegame\maingame.cpp(85): warning C4018: '<': signed/unsigned mismatch
-     1>d:\dev\git\opengltuto\newtutoopengl\zombiegame\maingame.cpp(95): warning C4018: '<': signed/unsigned mismatch
-     1>d:\dev\git\opengltuto\newtutoopengl\zombiegame\maingame.cpp(101): warning C4018: '<': signed/unsigned mismatch
-     1>d:\dev\git\opengltuto\newtutoopengl\zombiegame\maingame.cpp(107): warning C4018: '<': signed/unsigned mismatch
-     1>d:\dev\git\opengltuto\newtutoopengl\zombiegame\maingame.cpp(110): warning C4018: '<': signed/unsigned mismatch
-     1>d:\dev\git\opengltuto\newtutoopengl\zombiegame\maingame.cpp(115): warning C4018: '<': signed/unsigned mismatch
-     1>d:\dev\git\opengltuto\newtutoopengl\zombiegame\maingame.cpp(137): warning C4018: '<': signed/unsigned mismatch
-     1>d:\dev\git\opengltuto\newtutoopengl\zombiegame\maingame.cpp(140): warning C4018: '<': signed/unsigned mismatch
-     1>d:\dev\git\opengltuto\newtutoopengl\zombiegame\maingame.cpp(193): warning C4244: 'argument': conversion from 'Sint32' to 'float', possible loss of data
-     1>d:\dev\git\opengltuto\newtutoopengl\zombiegame\maingame.cpp(249): warning C4018: '<': signed/unsigned mismatch
-     1>d:\dev\git\opengltuto\newtutoopengl\zombiegame\maingame.cpp(255): warning C4018: '<': signed/unsigned mismatch
-         Generating Code...
+     1>d:\dev\git\opengltuto\newtutoopengl\zombiegame\maingame.cpp(28): warning C4018: '<': signed/unsigned mismatch
+     1>d:\dev\git\opengltuto\newtutoopengl\zombiegame\maingame.cpp(71): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+     1>d:\dev\git\opengltuto\newtutoopengl\zombiegame\maingame.cpp(86): warning C4018: '<': signed/unsigned mismatch
+     1>d:\dev\git\opengltuto\newtutoopengl\zombiegame\maingame.cpp(94): warning C4244: 'argument': conversion from 'const float' to 'int', possible loss of data
+     1>d:\dev\git\opengltuto\newtutoopengl\zombiegame\maingame.cpp(95): warning C4244: 'argument': conversion from 'const float' to 'int', possible loss of data
+     1>d:\dev\git\opengltuto\newtutoopengl\zombiegame\maingame.cpp(96): warning C4244: 'argument': conversion from 'const float' to 'int', possible loss of data
+     1>d:\dev\git\opengltuto\newtutoopengl\zombiegame\maingame.cpp(102): warning C4018: '<': signed/unsigned mismatch
+     1>d:\dev\git\opengltuto\newtutoopengl\zombiegame\maingame.cpp(108): warning C4018: '<': signed/unsigned mismatch
+     1>d:\dev\git\opengltuto\newtutoopengl\zombiegame\maingame.cpp(114): warning C4018: '<': signed/unsigned mismatch
+     1>d:\dev\git\opengltuto\newtutoopengl\zombiegame\maingame.cpp(117): warning C4018: '<': signed/unsigned mismatch
+     1>d:\dev\git\opengltuto\newtutoopengl\zombiegame\maingame.cpp(122): warning C4018: '<': signed/unsigned mismatch
+     1>d:\dev\git\opengltuto\newtutoopengl\zombiegame\maingame.cpp(144): warning C4018: '<': signed/unsigned mismatch
+     1>d:\dev\git\opengltuto\newtutoopengl\zombiegame\maingame.cpp(147): warning C4018: '<': signed/unsigned mismatch
+     1>d:\dev\git\opengltuto\newtutoopengl\zombiegame\maingame.cpp(156): warning C4018: '<': signed/unsigned mismatch
+     1>d:\dev\git\opengltuto\newtutoopengl\zombiegame\maingame.cpp(210): warning C4244: 'argument': conversion from 'Sint32' to 'float', possible loss of data
+     1>d:\dev\git\opengltuto\newtutoopengl\zombiegame\maingame.cpp(266): warning C4018: '<': signed/unsigned mismatch
+     1>d:\dev\git\opengltuto\newtutoopengl\zombiegame\maingame.cpp(272): warning C4018: '<': signed/unsigned mismatch
+     1>d:\dev\git\opengltuto\newtutoopengl\zombiegame\maingame.cpp(278): warning C4018: '<': signed/unsigned mismatch
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\dev\git\openglTuto\NewTutoOpenGL\Debug\ZombieGame.exe" /INCREMENTAL /NOLOGO SDL2.lib SDL2main.lib opengl32.lib glew32.lib OpenGLEngine.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /Debug /PDB:"D:\dev\git\openglTuto\NewTutoOpenGL\Debug\ZombieGame.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\dev\git\openglTuto\NewTutoOpenGL\Debug\ZombieGame.lib" /MACHINE:X86 Debug\Agent.obj
+         Debug\Bullet.obj
+         Debug\Gun.obj
          Debug\Human.obj
          Debug\Level.obj
          Debug\main.obj
@@ -32,4 +36,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:01.61
+Time Elapsed 00:00:01.34

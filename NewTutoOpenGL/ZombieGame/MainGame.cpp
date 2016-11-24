@@ -7,6 +7,7 @@
 #include "Zombie.h"
 #include <random>
 #include <ctime>
+#include "Gun.h"
 
 const float HUMAN_SPEED = 1.0f;
 const float ZOMBIE_SPEED = 1.3f;
@@ -62,7 +63,7 @@ void MainGame::InitLevel()
 	_currentLevel = 0;
 
 	_player = new Player();
-	_player->Init(PLAYER_SPEED, _levels[_currentLevel]->GetStartPlayerPos(), _inputManager);
+	_player->Init(PLAYER_SPEED, _levels[_currentLevel]->GetStartPlayerPos(), _inputManager, _camera, &_bullets);
 
 	_humans.push_back(_player);
 
@@ -87,6 +88,12 @@ void MainGame::InitLevel()
 		_zombies.push_back(new Zombie);
 		_zombies.back()->Init(ZOMBIE_SPEED, zombiePositions[i]);
 	}
+
+	// Set up the players gun
+	const float BULLET_SPEED = 20.0f;
+	_player->AddGun(new Gun("Magnum", 20, 1, 0.05f, 30, BULLET_SPEED));
+	_player->AddGun(new Gun("ShotGun", 60, 12, 2.0f, 4, BULLET_SPEED));
+	_player->AddGun(new Gun("MP5", 4, 1, 0.1f, 20, BULLET_SPEED));
 }
 
 void MainGame::UpdateAgents()
@@ -144,6 +151,14 @@ void MainGame::UpdateAgents()
 	}
 }
 
+void MainGame::UpdateBullets()
+{
+	for (int i = 0; i < _bullets.size(); ++i)
+	{
+		_bullets[i].Update(_humans, _zombies);
+	}
+}
+
 void MainGame::InitShaders()
 {
 	_textureProgram = new OpenGLEngine::GLSLProgram();
@@ -166,6 +181,8 @@ void MainGame::GameLoop()
 		ProcessInput();
 		
 		UpdateAgents();
+
+		UpdateBullets();
 
 		_camera->SetPosition(_player->GetPosition());
 
@@ -255,6 +272,12 @@ void MainGame::DrawGame()
 	for (int i = 0; i < _zombies.size(); ++i)
 	{
 		_zombies[i]->Draw(_agentSpriteBatch);
+	}
+
+	// Draw the bullets
+	for (int i = 0; i < _bullets.size(); ++i)
+	{
+		_bullets[i].Draw(_agentSpriteBatch);
 	}
 
 	_agentSpriteBatch.End();

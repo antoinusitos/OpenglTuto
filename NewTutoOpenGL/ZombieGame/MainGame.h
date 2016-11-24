@@ -1,5 +1,4 @@
-#ifndef DEF_MAINGAME
-#define DEF_MAINGAME
+#pragma once
 
 #include "SDL.h"
 #include "glew.h"
@@ -19,6 +18,7 @@
 #include "Player.h"
 #include <vector>
 #include "Level.h"
+#include "Bullet.h"
 
 enum class GameState
 {
@@ -54,6 +54,9 @@ private:
 
 	/// Update all agents
 	void UpdateAgents();
+
+	/// Update all bullets
+	void UpdateBullets();
 
 	/// Handles input processing
 	void ProcessInput();
@@ -92,6 +95,5 @@ private:
 	Player* _player;
 	std::vector<Human*> _humans;
 	std::vector<Zombie*> _zombies;
+	std::vector<Bullet> _bullets;
 };
-
-#endif
