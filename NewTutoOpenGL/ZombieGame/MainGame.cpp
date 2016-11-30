@@ -13,7 +13,7 @@ const float HUMAN_SPEED = 1.0f;
 const float ZOMBIE_SPEED = 1.3f;
 const float PLAYER_SPEED = 5.0f;
 
-MainGame::MainGame() : _window(nullptr), _windowWidth(1024), _windowHeight(768), _currentGameState(GameState::PLAY), _fps(0), _player(nullptr)
+MainGame::MainGame() : _window(nullptr), _windowWidth(1024), _windowHeight(768), _currentGameState(GameState::PLAY), _fps(0), _player(nullptr), _numHumansKilled(0), _numZombiesKilled(0)
 {
 	_camera = new OpenGLEngine::Camera2D();
 	_camera->Init(_windowWidth, _windowHeight);
@@ -91,9 +91,9 @@ void MainGame::InitLevel()
 
 	// Set up the players gun
 	const float BULLET_SPEED = 20.0f;
-	_player->AddGun(new Gun("Magnum", 20, 1, 0.05f, 30, BULLET_SPEED));
-	_player->AddGun(new Gun("ShotGun", 60, 12, 2.0f, 4, BULLET_SPEED));
-	_player->AddGun(new Gun("MP5", 4, 1, 0.1f, 20, BULLET_SPEED));
+	_player->AddGun(new Gun("Magnum", 10, 1, 5.0f, BULLET_SPEED, 30));
+	_player->AddGun(new Gun("ShotGun", 30, 12, 20.0f, BULLET_SPEED, 4));
+	_player->AddGun(new Gun("MP5", 2, 1, 10.0f, BULLET_SPEED, 20));
 }
 
 void MainGame::UpdateAgents()
@@ -153,9 +153,105 @@ void MainGame::UpdateAgents()
 
 void MainGame::UpdateBullets()
 {
-	for (int i = 0; i < _bullets.size(); ++i)
+	// update and collide with world
+	for (int i = 0; i < _bullets.size();)
 	{
-		_bullets[i].Update(_humans, _zombies);
+		// if update returns true, the bullet collided with a wall
+		if (_bullets[i].Update(_levels[_currentLevel]->GetLevelData()))
+		{
+			_bullets[i] = _bullets.back();
+			_bullets.pop_back();
+		}
+		else
+		{
+			++i;
+		}
+	}
+
+	bool wasBulletRemoved;
+
+	// collide with humans and zombies
+	for (int i = 0; i < _bullets.size(); i++)
+	{
+		wasBulletRemoved = false;
+		// Loop through zombies
+		for (int j = 0; j < _zombies.size();)
+		{
+			if (_bullets[i].CollideWithAgent(_zombies[j]))
+			{
+
+				// Damage zombie, and kill it if its out of health
+				if (_zombies[j]->ApplyDamage(_bullets[i].GetDamage()))
+				{
+					delete _zombies[j];
+					_numZombiesKilled++;
+					_zombies[j] = _zombies.back();
+					_zombies.pop_back();
+				}
+				else
+				{
+					j++;
+				}
+
+				// remove the bullet
+				_bullets[i] = _bullets.back();
+				_bullets.pop_back();
+				wasBulletRemoved = true;
+				// the bullet is destory, stop iterating through zombies
+				break;
+			}
+			else
+			{
+				j++;
+			}
+		}
+
+		// Loop through humans
+		if (!wasBulletRemoved)
+		{
+			//j = 0 is the player
+			for (int j = 1; j < _humans.size();)
+			{
+				if (_bullets[i].CollideWithAgent(_humans[j]))
+				{
+
+					// Damage human, and kill it if its out of health
+					if (_humans[j]->ApplyDamage(_bullets[i].GetDamage()))
+					{
+						delete _humans[j];
+						_numHumansKilled++;
+						_humans[j] = _humans.back();
+						_humans.pop_back();
+					}
+					else
+					{
+						j++;
+					}
+
+					// remove the bullet
+					_bullets[i] = _bullets.back();
+					_bullets.pop_back();
+					wasBulletRemoved = true;
+					// the bullet is destory, stop iterating through zombies
+					break;
+				}
+				else
+				{
+					j++;
+				}
+			}
+		}
+	}
+}
+
+void MainGame::CheckVictory()
+{
+	// TODO : Support for multiple levels
+	// if all zombies are dead we win
+	if (_zombies.empty())
+	{
+		std::printf("*** You win ! ***\n Tou killed %d humans and %d zombies. There are %d/%d civilians remaining", _numHumansKilled, _numZombiesKilled, _humans.size() - 1, _levels[_currentLevel]->GetNumHumans());
+		FatalError("");
 	}
 }
 
@@ -177,6 +273,8 @@ void MainGame::GameLoop()
 	while (_currentGameState != GameState::EXIT)
 	{
 		fpsLimiter.Begin();
+
+		CheckVictory();
 
 		ProcessInput();
 		

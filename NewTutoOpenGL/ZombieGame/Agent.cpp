@@ -82,6 +82,16 @@ void Agent::Draw(OpenGLEngine::SpriteBatch& spriteBatch)
 	spriteBatch.Draw(destRect, uvRect, textureID, 0.0f, _color);
 }
 
+bool Agent::ApplyDamage(int damage)
+{
+	_health -= damage;
+	if (_health <= 0)
+	{
+		return true;
+	}
+	return false;
+}
+
 void Agent::CheckTilePosition(const std::vector<std::string>& levelData, std::vector<glm::vec2>& collideTilePositions, float x, float y)
 {
 	glm::vec2 cornerPos = glm::vec2(

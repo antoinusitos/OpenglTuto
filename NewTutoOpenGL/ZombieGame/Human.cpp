@@ -18,6 +18,8 @@ void Human::Init(float speed, glm::vec2 pos)
 
 	static std::uniform_real_distribution<float> randDir(-1.0f, 1.0f);
 
+	_health = 20;
+
 	_color.r = 200;
 	_color.g = 0;
 	_color.b = 200;

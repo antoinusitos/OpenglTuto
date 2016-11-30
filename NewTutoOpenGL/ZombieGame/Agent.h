@@ -27,6 +27,9 @@ public:
 
 	void Draw(OpenGLEngine::SpriteBatch& spriteBatch);
 
+	// return true if we died
+	bool ApplyDamage(int damage);
+
 	glm::vec2 GetPosition() const { return _position; }
 
 protected:
@@ -38,5 +41,6 @@ protected:
 	glm::vec2 _position;
 	OpenGLEngine::Color _color;
 	float _speed;
+	int _health;
 };
 

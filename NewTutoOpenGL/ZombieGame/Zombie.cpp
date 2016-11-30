@@ -13,6 +13,7 @@ Zombie::~Zombie()
 
 void Zombie::Init(float speed, glm::vec2 pos)
 {
+	_health = 150;
 	_speed = speed;
 	_position = pos;
 	_color.r = 0;

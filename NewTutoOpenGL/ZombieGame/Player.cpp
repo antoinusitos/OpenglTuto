@@ -25,6 +25,7 @@ void Player::Init(float speed, glm::vec2 pos, OpenGLEngine::InputManager* inputM
 	_inputManager = inputManager;
 	_camera = camera;
 	_bullets = bullets;
+	_health = 150;
 }
 
 void Player::AddGun(Gun* gun)
@@ -61,15 +62,15 @@ void Player::Update(const std::vector<std::string>& levelData,
 		_position.y += _speed;
 	}
 
-	if (_inputManager->isKeyPressed(SDLK_1) && _guns.size() >= 0)
+	if (_inputManager->isKeyPressed(SDLK_1) && _guns.size() >= 1)
 	{
 		_currentGunIndex = 0;
 	}
-	else if (_inputManager->isKeyPressed(SDLK_2) && _guns.size() >= 1)
+	else if (_inputManager->isKeyPressed(SDLK_2) && _guns.size() >= 2)
 	{
 		_currentGunIndex = 1;
 	}
-	else if (_inputManager->isKeyPressed(SDLK_3) && _guns.size() >= 2)
+	else if (_inputManager->isKeyPressed(SDLK_3) && _guns.size() >= 3)
 	{
 		_currentGunIndex = 2;
 	}
